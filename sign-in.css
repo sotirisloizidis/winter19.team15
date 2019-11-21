@@ -1,0 +1,164 @@
+.center {
+  text-align: center;
+
+}
+
+.motto{
+    color: #B0BCCE;
+
+}
+
+html { font-size:100%; }
+
+.form-control{
+    border-radius: 18px;
+         padding: 5px; 
+
+}
+
+.buttons{
+max-width:100%;
+     border-radius: 18px;
+     padding: 10px; 
+     color: white;
+     text-decoration:none;
+     display:inline-block;
+     background-color:#616060;
+}
+
+.contact{
+    max-width:100%;
+    max-height:100px;
+
+}
+
+
+
+.passwd{
+    color: black;
+    
+}
+
+
+.ironskyimg{ max-width: 100%; }
+input{
+    max-width: 100%;
+    max-height:300px;
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 3000px) {
+    .ironskyimg{
+        width:20%;
+    }  
+    input{
+         width:20%;
+         height:30px;
+         padding: 5px;
+    }
+    .buttons{
+         width:10%;
+         height:30px; 
+         padding: 5px;
+    }
+    .contact{
+        width:40px;
+        height:40px;
+        padding-right:10px;
+    }
+    
+    h1{
+        font-size:40px;
+    }
+    h2{
+        font-size:30px;
+    }
+}
+
+/* Tablet Landscape */
+@media screen and (max-width: 1024px) {
+    .ironskyimg{
+        width:60%;
+
+    }  
+    input{
+         width:60%;
+         height:60px;
+    }
+    .buttons{
+         width:30%;
+         height:30px; 
+         padding: 15px;
+    }
+    .contact{
+        width:60px;
+        height:60px;
+        padding-right:10px;
+    }
+    h1{
+        font-size:60px;
+    }
+    h2{
+        font-size:40px;
+    }
+}
+
+/* mobile Portrait */
+@media screen and (max-width: 768px) {
+    .ironskyimg{
+        width:60%;
+    }
+    input{
+         width:60%;
+         height:40px;
+    }
+    .buttons{
+         width:30%;
+         height:20px; 
+         padding: 5px;
+    }
+    .contact{
+        width:37px;
+        height:37px;
+        padding-right:10px;
+    }
+    h1{
+        font-size:40px;
+    }
+    h2{
+        font-size:30px;
+    }
+}
+
+/* mobile Portrait */
+@media screen and (max-width: 415px) {
+    .ironskyimg{
+        width:50%;
+    }
+    input{
+         width:60%;
+         height:30px;
+    }
+    .buttons{
+         width:30%;
+         height:20px; 
+         padding: 5px;
+    }
+    .contact{
+        width:30px;
+        height:30px;
+        padding-right:10px;
+    }
+    h1{
+        font-size:30px;
+    }
+    h2{
+        font-size:20px;
+    }
+}
+ 
