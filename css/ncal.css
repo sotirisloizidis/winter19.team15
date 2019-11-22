@@ -1,18 +1,3 @@
-.form-gap{
-    padding-top:50px;
-
-}
-.QR{
-    width:50px;
-    height:50px;
-    
-}
-
-.logo span{
-    padding-left:50px;
-
-}
-
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -34,7 +19,7 @@ time, mark, audio, video {
 }
 body {
     font-size: 100%;
-  
+    background-color: #1E4072;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -94,11 +79,12 @@ body{
      user-select: none;    
 }
 
-.elegant-calendar {
-    
-    border: 1px solid #1E4072;
+.elegant-calencar {
+    width: 25em;
+    height: 29em;
+    border: 1px solid #000;
     -webkit-box-shadow: 0 0 10px #000;
-    box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 10px #000;
     text-align: center;
     margin: 4em auto;
     position: relative;
@@ -107,7 +93,7 @@ body{
 #header {
     font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     height: 14em;
-    background-color: #fff; 
+    background-color: #fff;
   
 }
 
@@ -148,15 +134,14 @@ body{
 
 .head-info {
     float: left;
-     
+    width: 16em;
 }
 
-.head-day { 
+.head-day {
     margin-top: 30px;
     font-size: 8em;
     line-height: 1;
     color: #000;
-    text-align: center;
 }
 
 .head-month {
@@ -169,24 +154,22 @@ body{
 #calendar {
     width: 100%;
     margin: 0 auto;
-     
+   
 }
 
 #calendar tr {
-    height:2em;
+    height: 2em;
     line-height: 2em;
 }
 
 thead tr {
-    color: black;
+    color: #fff;
 	font-weight: 700;
 	text-transform: uppercase;
-    text-align: center;
 }
 
 tbody tr {
     color: #000;
-    text-align: center;
 }
 
 tbody td{
@@ -199,7 +182,7 @@ tbody td{
 
 tbody td:hover, .selected {
     color: #fff;
-    background-color: #1E4072;
+    background-color: #fff;
     border: none;
 }
 
@@ -214,7 +197,6 @@ tbody td:active {
     color: #fff;
     font-family: serif;
     border-radius: 50%;
-    text-align: center;
 }
 
 #disabled {
@@ -223,7 +205,7 @@ tbody td:active {
 }
 
 #disabled:hover {
-    background: #1E4072;
+    background: #fff;
     color: #fff;
 }
 
