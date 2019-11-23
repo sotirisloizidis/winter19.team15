@@ -15,7 +15,8 @@ body{
 .form-control{
     border-radius: 18px;
     padding: 20px; 
-    height: 15px; 
+    height: 80px; 
+    font-size:1.5em;
 }
 .buttons{
      width: 380px;
@@ -70,4 +71,10 @@ body{
  padding-left: 75px; 
  font-size: 0.8em;
  font-weight: 300;
+}
+
+#resetSubmit{
+ padding: 20px; 
+    height: 80px; 
+    font-size:1.5em;
 }
