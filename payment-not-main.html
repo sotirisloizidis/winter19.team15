@@ -76,8 +76,8 @@
 	    </div>
 	</div> <!-- row.// -->
 	<a class="subscribe btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#myModal"> Confirm  </a>
-    <a class="subscribe btn btn-secondary btn-block" type="button" href="main.html"> Cancel  </a>
-	</form>
+    <a class="subscribe btn btn-secondary btn-block" type="button" href="memberships.html"> Cancel  </a>
+    
     <!-- The Modal -->
     <div class="modal" id="myModal">
       <div class="modal-dialog">
@@ -85,25 +85,31 @@
     
           <!-- Modal Header -->
           <div class="modal-header">
-            <h3 class="modal-title">Payment Successful</h3>
+            <h4 class="modal-title">Payment Successful</h4>
             <a id="myTrigger" class="close" data-dismiss="modal">&times;</a>
           </div>
             
           <!-- Modal body -->
-          <h5 class="modal-body"> <img class="tick" src="images/tick.jpg"></h5>
-    
-    <!-- Modal footer -->
+          <h5 class="modal-body"> <img class="tick" src="images/tick.jpg">
+          <br>
+            The new plan will be activated upon the expiration of your current membership subscription
+          </h5>
+          <!-- Modal footer -->
           <div class="modal-footer">
-            <a id="myTrigger2" type="button" class="btn btn-primary" data-dismiss="modal">Close</a>
+            <a id="myTrigger2" type="button"  class="btn btn-primary" data-dismiss="modal">Close</a>
           </div>
+    
         </div>
       </div>
     </div>
     <script>
-     $(document).on('hidden.bs.modal','#myModal', function () {
+
+    $(document).on('hidden.bs.modal','#myModal', function () {
         window.location = "main.html";
     });
+
     </script>
+	</form>
 </div> <!-- tab-pane.// -->
 <div class="tab-pane fade" id="nav-tab-paypal">
 <p>Paypal is easiest way to pay online</p>
