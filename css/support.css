@@ -41,9 +41,11 @@
 }
 
 .logo span{
-    padding-left:50px;
-
+    padding-left:75px;
+    font-size:0.8em;
+    font-weight:300;
 }
+
 
 .form-gap{
     padding-top:50px;
@@ -51,7 +53,7 @@
 }
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+
 }
 
 /*---------------------------------------------*/
@@ -386,7 +388,15 @@ textarea.input100 {
   padding-top: 23px;
 }
 
-.contact100-form-btn {
+.sub{
+      background: #00ad5f;
+}
+
+.ret{
+      background: #000;
+}
+
+.contact100-form-btn{
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -398,7 +408,7 @@ textarea.input100 {
   min-width: 200px;
   height: 50px;
   border-radius: 2px;
-  background: #00ad5f;
+
 
   font-family: Montserrat-Bold;
   font-size: 12px;
@@ -528,4 +538,16 @@ textarea.input100 {
 }
 
 
+    .contact{
+        width:40px;
+        height:30px;
+        padding-right:10px;
+    }
+
+    .facebook{
+        width:35px;
+        height:25px;
+        padding-right:10px;
+    }
+    
 

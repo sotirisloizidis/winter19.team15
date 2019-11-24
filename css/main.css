@@ -335,3 +335,12 @@ tbody td:active {
     width: 100%;
   }
 }
+
+.tick{
+    width:8em;
+    height:5em;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
