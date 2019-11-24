@@ -37,7 +37,16 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active"><a class="nav-link" href="main.html">Home <span class=
         "sr-only">(current)</span></a></li>
-        <li class="nav-item active"><a class="nav-link" href="announcements-client.html">Announcements</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="announcements-client.html">Announcements</a> 
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="nutritionPlan.html">Nutrition Plan</a>
+          </div>
+        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Membership</a>
@@ -52,7 +61,8 @@
         <li class="nav-item"><a class="nav-link" href="sign-in.html" tabindex="-1">Logout</a></li>
       </ul>
     </div>
-  </nav><!-- The Modal -->
+  </nav>
+  <!-- The Modal -->
   <div class="modal" id="myModal2">
     <div class="modal-dialog">
       <div class="modal-content">
