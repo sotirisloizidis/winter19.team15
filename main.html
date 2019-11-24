@@ -18,10 +18,20 @@
   </head>
   <body style="background-color:#1E4072;">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <img class="navbar-brand img-fluid QR" src="images/QR.png">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <!-- Trigger the Modal -->
+    <img id="myImg" src="images/QR.png" alt="Scan with your phone to sign-in." style="width:100%;max-width:50px" >
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
+    <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+  <script src="js/QR.js"></script>
+
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
@@ -35,7 +45,7 @@
           <a class="dropdown-item" href="payment.html">Payment</a>
  
           <div class="dropdown-divider"></div>
-          <button class="dropdown-item" data-toggle="modal" data-target="#myModal">Cancel Subscription</button>
+          <button class="dropdown-item" data-toggle="modal" data-target="#myModal2">Cancel Subscription</button>
         </div>
       </li>
       <li class="nav-item active">
@@ -49,7 +59,7 @@
   </div>
 </nav>
     <!-- The Modal -->
-    <div class="modal" id="myModal">
+    <div class="modal" id="myModal2">
       <div class="modal-dialog">
         <div class="modal-content">
     
