@@ -63,6 +63,22 @@
   </div>
 </nav>
     <!-- END OF NAVIGATION BAR -->
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        Notification Sent.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  
   
    <br>
   <div class="form-gap">
@@ -70,48 +86,88 @@
   </div>
     <br><br>
   <div class="container">
+        <div style="color:white; font-size:2vw;"><strong>Memberships Due/Expired.</strong></div>
       <div class="row">
-  <div class="col-7 mx-auto">
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-n1-list" data-toggle="list" href="#list-n1" role="tab" aria-controls="n1">Notification 1</a>
-      <a class="list-group-item list-group-item-action" id="list-n2-list" data-toggle="list" href="#list-n2" role="tab" aria-controls="n2">Notification 2</a>
-      <a class="list-group-item list-group-item-action" id="list-n3-list" data-toggle="list" href="#list-n3" role="tab" aria-controls="n3">Notification 3</a>
-      <a class="list-group-item list-group-item-action" id="list-n4-list" data-toggle="list" href="#list-n4" role="tab" aria-controls="n4">Notification 4</a>
+      
+  <div class="col-6 mx-auto">
+    
+    <div class="list-group" id="list-tab" role="tablist"> 
+      <a class="list-group-item list-group-item-action active" id="list-n1-list" data-toggle="list" href="#list-n1" role="tab" aria-controls="n1" style="text-align:center; font-size:2vw;"> username1</a>
+      <a class="list-group-item list-group-item-action" id="list-n2-list" data-toggle="list" href="#list-n2" role="tab" aria-controls="n2" style="text-align:center; font-size:2vw;">username2</a>
+      <a class="list-group-item list-group-item-action" id="list-n3-list" data-toggle="list" href="#list-n3" role="tab" aria-controls="n3" style="text-align:center; font-size:2vw;">username3</a>
+      <a class="list-group-item list-group-item-action" id="list-n4-list" data-toggle="list" href="#list-n4" role="tab" aria-controls="n4" style="text-align:center; font-size:2vw;">username4</a>
+      <a class="list-group-item list-group-item-action" id="list-n5-list" data-toggle="list" href="#list-n5" role="tab" aria-controls="n5" style="text-align:center; font-size:2vw;">username7</a>
+      <a class="list-group-item list-group-item-action" id="list-n6-list" data-toggle="list" href="#list-n6" role="tab" aria-controls="n6" style="text-align:center; font-size:2vw;">username12</a>
+      <a class="list-group-item list-group-item-action" id="list-n7-list" data-toggle="list" href="#list-n7" role="tab" aria-controls="n7" style="text-align:center; font-size:2vw;">username87</a>
+      <a class="list-group-item list-group-item-action" id="list-n8-list" data-toggle="list" href="#list-n8" role="tab" aria-controls="n8" style="text-align:center; font-size:2vw;">username99</a>
     </div>
   </div>
-  <div class="col-5">
+  <div class="col-6 mx-auto">
     <div class="tab-content" id="nav-tabContent">
+    <!--MEMBERSHIPS DUE START -->
       <div class="tab-pane fade show active" id="list-n1" role="tabpanel" aria-labelledby="list-n1-list">
        <h5 class="text text-white">
-     <strong> Title</strong> <br>
-      <span>Subject</span> <br>
-      <span>This is a Notification.</span>
+     <strong> EXPIRING ON:</strong> <br>
+      <span>12/12/2012</span> <br><br>
+      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
       </h5>
       </div>
       <div class="tab-pane fade" id="list-n2" role="tabpanel" aria-labelledby="list-n2-list">
       <h5 class="text text-white">
-     <strong> Title</strong> <br>
-      <span>Subject</span> <br>
-      <span>This is also a Notification.</span>
+    <strong> EXPIRING ON:</strong> <br>
+      <span>17/12/2012</span> <br><br>
+      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>   
       </h5>
       </div>
       <div class="tab-pane fade" id="list-n3" role="tabpanel" aria-labelledby="list-n3-list">
        <h5 class="text text-white">
-     <strong> Title</strong> <br>
-      <span>Subject</span> <br>
-      <span>This is a Notification as well.</span>
+    <strong> EXPIRING ON:</strong> <br>
+      <span>10/12/2012</span> <br><br>
+      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
       </h5>
       </div>
       <div class="tab-pane fade" id="list-n4" role="tabpanel" aria-labelledby="list-n4-list">
       <h5 class="text text-white">
-     <strong> Title</strong> <br>
-      <span>Subject</span> <br>
-      <span>This is a Notification indeed.</span>
+     <strong> EXPIRING ON:</strong> <br>
+      <span>09/12/2012</span> <br><br>
+      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
       </h5>
-    </div>
+    </div> 
+     <!-- MEMBERSHIPS DUE END -->
+     
+       <!--EXPIRED MEMBERSHIPS START-->
+      <div class="tab-pane fade" id="list-n5" role="tabpanel" aria-labelledby="list-n5-list">
+       <h5 class="text text-white">
+     <strong> EXPIRED IN:</strong> <br>
+      <span>12/11/2012</span> <br><br>
+      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
+      </h5>
+      </div>
+      <div class="tab-pane fade" id="list-n6" role="tabpanel" aria-labelledby="list-n6-list">
+      <h5 class="text text-white">
+    <strong> EXPIRED IN:</strong> <br>
+      <span>12/11/2012</span> <br><br>
+      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
+      </h5>
+      </div>
+      <div class="tab-pane fade" id="list-n7" role="tabpanel" aria-labelledby="list-n7-list">
+       <h5 class="text text-white">
+    <strong> EXPIRED IN:</strong> <br>
+      <span>12/11/2012</span> <br><br>
+      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
+      </h5>
+      </div>
+      <div class="tab-pane fade" id="list-n8" role="tabpanel" aria-labelledby="list-n8-list">
+      <h5 class="text text-white">
+     <strong> EXPIRED IN:</strong> <br>
+      <span>12/11/2012</span> <br><br>
+      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
+      </h5>
+    </div> 
   </div>
 </div>
   </div>
-  
-  
+   </div>
+   
+
   </body>
