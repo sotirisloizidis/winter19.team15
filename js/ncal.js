@@ -158,6 +158,11 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     };
     var calendar = new Calendar();
+    RegisterNew()
+    {
+        documet.getElementById("RegisterForm").submit();
+    }
+    
     
         
 }, false);
