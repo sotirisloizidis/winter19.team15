@@ -21,4 +21,11 @@ $pass=1234;
 $sql="INSERT INTO Customer (Name,Surname,Address,Telephone,Email,Password) VALUES ('$name','$surname','$address','$tele','$email','$pass')";
 mysqli_query($conn,$sql);
 $conn->close();
+
+$subject='Account Activation';
+$message='Hello' . $name 'Your Account has been activated. Your username is ' . $email . 'and your password is ' . $pass . ' Welcome to ironsky';
+$headers = "From: ironsky";
+mail($email,$subject,$message,$headers);
+
+header('Location: http://cproject.in.cs.ucy.ac.cy/ironsky/Mike/mainTrainer.html'); 
 ?>
