@@ -76,23 +76,26 @@
         <div class="row py-3">
             <div class="col-sm-12 mx-auto">
                 <!-- form card register -->
-                <div class="card ">
-                    <div style="overflow-x:auto;">
-                        <div class="card-header">
-                            <h3 class="mb-0">Create New Class</h3>
-                        </div>
-                        <div class="card-body">
-                           
+                <form  data-ajax=”false”>
+                    <div class="card ">
+                        <div style="overflow-x:auto;">
+                            <div class="card-header">
+                                <h3 class="mb-0">Create New Class</h3>
+                            </div>
+
+                            <div class="card-body">
+
                                 <div class="form-group">
                                     <label for="input1">Class Name</label>
-                                    <input type="text" class="form-control" required id="input1" placeholder="Class name" />
+                                    <input type="text" class="form-control" typeof="text" required id="input1" placeholder="Class name" />
                                 </div>
                                 <div class="form-group">
                                     <label for="input2">Number of places:</label>
-                                    <textarea class="form-control" required id="input2"></textarea>
+                                    
+                                    <input  id="input2" class="form-control" typeof="number" required input type="number">
                                 </div>
                                 <!-- Default panel contents -->
-                            <form>
+
                                 <div class="row">
                                     <div class="col-sm-12 mx-auto">
                                         <table class="table table-bordered">
@@ -110,18 +113,18 @@
                                             <tbody>
                                                 <!-- 7:30-8:15 -->
                                                 <tr>
-                                                    <td>7:30-8:15</td>
-                                                    <td data-id="0" data-position="0-1"></td>
-                                                    <td data-id="0" data-position="0-2"></td>
-                                                    <td data-id="0" data-position="0-3"></td>
-                                                    <td data-id="0" data-position="0-4"></td>
-                                                    <td data-id="0" data-position="0-5"></td>
-                                                    <td data-id="0" data-position="0-6"></td>
+                                                    <td data-id="1">7:30-8:15</td>
+                                                    <td data-id="0" data-i="0-1"></td>
+                                                    <td data-id="0" data-i="0-2"></td>
+                                                    <td data-id="0" data-i="0-3"></td>
+                                                    <td data-id="0" data-i="0-4"></td>
+                                                    <td data-id="0" data-i="0-5"></td>
+                                                    <td data-id="0" data-i="0-6"></td>
 
                                                 </tr>
                                                 <!-- 8:15-9:00- -->
                                                 <tr>
-                                                    <td>8:15-9:00</td>
+                                                    <td data-id="1">8:15-9:00</td>
                                                     <td data-id="0" data-position="1-1"></td>
                                                     <td data-id="0" data-position="1-2"></td>
                                                     <td data-id="0" data-position="1-3"></td>
@@ -131,37 +134,37 @@
                                                 </tr>
                                                 <!-- 9:00-12:30- -->
                                                 <tr>
-                                                    <td>9:00-12:30</td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
+                                                    <td data-id="1">9:00-12:30</td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
                                                 </tr>
                                                 <!-- 12:30-15:30- -->
                                                 <tr>
-                                                    <td>12:30-15:30</td>
-                                                    <td><div> CLOSED</div></td>
-                                                    <td><div>CLOSED</div></td>
-                                                    <td><div>CLOSED</div></td>
-                                                    <td><div>CLOSED</div></td>
-                                                    <td><div>CLOSED</div></td>
-                                                    <td><div>CLOSED</div></td>
+                                                    <td data-id="1">12:30-15:30</td>
+                                                    <td data-id="1"><div> CLOSED</div></td>
+                                                    <td data-id="1"><div>CLOSED</div></td>
+                                                    <td data-id="1"><div>CLOSED</div></td>
+                                                    <td data-id="1"><div>CLOSED</div></td>
+                                                    <td data-id="1"><div>CLOSED</div></td>
+                                                    <td data-id="1"><div></div></td>
                                                 </tr>
                                                 <!-- 15:30-17:15- -->
                                                 <tr>
-                                                    <td>15:30-17:15</td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
+                                                    <td data-id="1">15:30-17:15</td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div></div></td>
                                                 </tr>
                                                 <!-- 17:15-18:00- -->
                                                 <tr>
-                                                    <td>17:15-18:00</td>
+                                                    <td data-id="1">17:15-18:00</td>
                                                     <td data-id="0" data-position="2-1"></td>
                                                     <td data-id="0" data-position="2-2"></td>
                                                     <td data-id="0" data-position="2-3"></td>
@@ -171,7 +174,7 @@
                                                 </tr>
                                                 <!-- 18:00-18:45- -->
                                                 <tr>
-                                                    <td>18:00-18:45</td>
+                                                    <td data-id="1">18:00-18:45</td>
                                                     <td data-id="0" data-position="3-1"></td>
                                                     <td data-id="0" data-position="3-2"></td>
                                                     <td data-id="0" data-position="3-3"></td>
@@ -181,7 +184,7 @@
                                                 </tr>
                                                 <!-- 18:45-19:30- -->
                                                 <tr>
-                                                    <td>18:45-19:30</td>
+                                                    <td data-id="1">18:45-19:30</td>
                                                     <td data-id="0" data-position="4-1"></td>
                                                     <td data-id="0" data-position="4-2"></td>
                                                     <td data-id="0" data-position="4-3"></td>
@@ -191,7 +194,7 @@
                                                 </tr>
                                                 <!-- 19:30-20:15- -->
                                                 <tr>
-                                                    <td>19:30-20:15</td>
+                                                    <td data-id="1">19:30-20:15</td>
                                                     <td data-id="0" data-position="5-1"></td>
                                                     <td data-id="0" data-position="5-2"></td>
                                                     <td data-id="0" data-position="5-3"></td>
@@ -201,7 +204,7 @@
                                                 </tr>
                                                 <!-- 20:15-21:00- -->
                                                 <tr>
-                                                    <td>20:15-21:00</td>
+                                                    <td data-id="1">20:15-21:00</td>
                                                     <td data-id="0" data-position="6-1"></td>
                                                     <td data-id="0" data-position="6-2"></td>
                                                     <td data-id="0" data-position="6-3"></td>
@@ -209,77 +212,70 @@
                                                     <td data-id="0" data-position="6-5"></td>
                                                     <td data-id="0" data-position="6-6"></td>
                                                 </tr>
-                                                <!-- 8:15-9:00- -->
+                                                <!-- 20:15-21:30- -->
                                                 <tr>
-                                                    <td>8:15-9:00</td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
-                                                    <td><div> OPEN GYM</div></td>
+                                                    <td data-id="1">20:15-21:30</td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div> OPEN GYM</div></td>
+                                                    <td data-id="0"><div></div></td>
                                                 </tr>
 
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
 
 
 
-                                <div class="form-group">
-                                    <label for="input3">Brief Description</label>
-                                    <textarea class="form-control" required id="input3"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button  id="submit" class="btn btn-success btn-lg float-right">Create</button>
-                                </div>
-                          
+
+                            <div class="form-group">
+                                <label for="input3">Brief Description</label>
+                                <textarea class="form-control" typeof="text" required id="input3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button id="submit" class="btn btn-success btn-lg float-right">Create</button>
+                            </div>
+
                         </div>
+                    </div>
+                </form>
 
-                    </div>
-                    </div>
+                
+            </div>
                 </div>
             <!-- /form card register -->
         </div>
-    </div>
+    
     <script>
-      /*  $(".expandCheck").on('click', function (e) {
-    cb = $(e.target).children(":checkbox");
-    cb.attr("checked", !cb.attr("checked"));
-        }); */
-
         $("table td").click(function () {
-
+            if($(this).attr("data-id")!="1")
             $(this).toggleClass("checked");    
         });
         var positions = [];
         $("#submit").on("click", function () {
-            $("table td").each(function () {
-            if()
-                if ($(this).hasClass("checked")) {
-                   
-                    positions.push($(this).attr("data-position"));
-                }
-
-             
-            });
             var className = $("#input1").val();
             var nPlaces = $("#input2").val();
             var description = $("#input3").val();
-            alert(className);
-            alert(nPlaces);
-            alert(description);
-
-             $.ajax({
-                 type: "POST",
-                 data: { positions: positions, classname: classname, nPlaces: nPlaces, description: description },
-                   url: "postClass.php",
-                   success: function(msg){
-                       alert("data inserted");
-                   }
+            if (!className || !nPlaces || !description) {
+                return;
+            } else {
+                console.log("MBRAAAVO RE SHILLE MOU!");
+                $("table td").each(function () {
+                    if ($(this).hasClass("checked")) {
+                        positions.push($(this).attr("data-position"));
+                    }
                 });
+                $.ajax({
+                    type: "POST",
+                    data: { positions: positions, className: className, nPlaces: nPlaces, description: description },
+                    url: "postClass.php",
+                    success: alert("data inserted")
+                    });
+            }
         });
     </script>
     <!-- END OF CONTAINER FOR CLASS CREATION -->
