@@ -12,8 +12,6 @@ function fill() {
 function passItem(el) {
     document.getElementById('show_button').style.display = 'none';
     var e = document.getElementById(el).value;
-    var strSel = "The Value is: " + e;
-    alert(strSel);
     var n = 0;
     for (let i = 0; i < 6; i++) {
         if (e == dayNames[i]) {
@@ -32,16 +30,12 @@ function passItem(el) {
     } else {
         day = n - dayOfWeek;
     }
-    alert("The difference is " + day);
     $.ajax({
-        url: 'getData.php',
+        url: 'php/getData.php',
         type: 'POST',
         data: { days: day },
         success: function (data) {
             var json = $.parseJSON(data);
-            //check if json is empty,print no classes available in fancy way
-
-
             var tbody = document.createElement('tbody');
             var x = document.getElementById('Classes').appendChild(tbody);
             if ($.trim(json) == '') {
@@ -54,7 +48,6 @@ function passItem(el) {
                 var row = tbody.insertRow(i);
                 var c = 0;
                 $.each(val, function (k, v) {
-                    console.log(k + " : " + v);
                     var y = row.insertCell(-1);
                     y.innerHTML = v;
                     if (c == 4) {
@@ -72,8 +65,8 @@ function passItem(el) {
                         }
                         y = row.insertCell(-1);
                         var img = document.createElement('img');
-                        img.src = "bar.jpg";
-                        img.style = "width:50px; height:50px; margin-top:-2px;";
+                        img.src = "images/bar.jpg";
+                        img.style = "width:100px; height:100px; margin-top:-2px;";
                         y.appendChild(img);
                     }
 
@@ -81,7 +74,6 @@ function passItem(el) {
 
                 });
             });
-            // console.log(data); // Inspect this in your console
         }
     });
 }
