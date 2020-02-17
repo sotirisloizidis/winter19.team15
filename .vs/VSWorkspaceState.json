@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css"
+    "\\css",
+    "\\php"
   ],
-  "SelectedNode": "\\navbar.html",
+  "SelectedNode": "\\createClass.html",
   "PreviewInSolutionExplorer": false
 }
