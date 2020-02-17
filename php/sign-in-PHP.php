@@ -10,14 +10,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
 $email=$_POST["Email"];
 $password=$_POST["Password"];
 
 
-
 if(($email=="") || ($password=="") ){
-     header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/testGreg/sign-in.php");
-        return false;   
+      echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+      alert('The Email and Password fields cannot be empty');
+      </script>";
+    //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php");
+    return false;   
 }
 
 $query = "SELECT * FROM Customer WHERE Email='$email'";
@@ -28,10 +31,10 @@ if (!$result) {
     printf("Error: %s\n", mysqli_error($conn));
     exit();
 }  
-  $row = mysqli_fetch_assoc($result);
+  $row = mysqli_fetch_assoc($result);  
   
-  if (password_verify($password, $row['Password'])){
-       header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/epl343-old/main.html");
+  if (password_verify($password,$row['Password'])){ 
+       header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/main.html");
        return true;
   }else{
         $query2 = "SELECT * FROM Trainer WHERE Email='$email'";
@@ -42,11 +45,13 @@ if (!$result) {
             exit();
         }  
         $row2 = mysqli_fetch_assoc($result2);
-        if ($row2['Password']==$password){ 
-            // header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/epl343-old/mainTrainer.html");
+        if (password_verify($password, $row2['Password'])){ 
+             header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html");
              return true;
         }else{
-            //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/testGreg/sign-in.php");
+            echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+            alert('The Email or Password is incorrect');
+            </script>";
             return false;
         }
     }

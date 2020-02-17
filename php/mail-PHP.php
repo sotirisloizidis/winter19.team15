@@ -13,7 +13,10 @@ if ($conn->connect_error) {
 $email=$_POST["Email"];
 
 if(($email=="")){
-     header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/testGreg/reset.php");
+
+     echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/reset.php';
+      alert('The Email field cannot be empty');
+      </script>";
         return false;
 }else{
     $query = "SELECT * FROM Customer WHERE Email='$email'";
@@ -21,6 +24,7 @@ if(($email=="")){
 
     if (!$result) {
         printf("Error: %s\n", mysqli_error($conn));
+        
         exit();
     }
     $row = mysqli_fetch_assoc($result);
@@ -34,7 +38,9 @@ if(($email=="")){
 
 
     mail($email,$subject,$message,$headers);
-    header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/testGreg/reset.php");
+    echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+      alert('SUCCESS! Email sent successfully');
+      </script>";
     return true;
 }
 
