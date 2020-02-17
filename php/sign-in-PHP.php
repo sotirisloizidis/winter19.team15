@@ -1,0 +1,58 @@
+<?php
+$servername="localhost";
+$username = "ironsky";
+$password = "pfVGdTzSOoLh85yp";
+$dbname = "ironsky";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$email=$_POST["Email"];
+$password=$_POST["Password"];
+
+
+
+if(($email=="") || ($password=="") ){
+     header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/testGreg/sign-in.php");
+        return false;   
+}
+
+$query = "SELECT * FROM Customer WHERE Email='$email'";
+$result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
+
+if (!$result) {
+    echo "wrong input";
+    printf("Error: %s\n", mysqli_error($conn));
+    exit();
+}  
+  $row = mysqli_fetch_assoc($result);
+  
+  if (password_verify($password, $row['Password'])){
+       header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/epl343-old/main.html");
+       return true;
+  }else{
+        $query2 = "SELECT * FROM Trainer WHERE Email='$email'";
+        $result2 = mysqli_query($conn, $query2)  or die("Could not connect database " .mysqli_error($conn));
+          
+        if (!$result2) {
+            printf("Error: %s\n", mysqli_error($conn));
+            exit();
+        }  
+        $row2 = mysqli_fetch_assoc($result2);
+        if ($row2['Password']==$password){ 
+            // header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/epl343-old/mainTrainer.html");
+             return true;
+        }else{
+            //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/testGreg/sign-in.php");
+            return false;
+        }
+    }
+           
+$conn->close();   
+
+
+?>
+                                            
