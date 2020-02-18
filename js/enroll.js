@@ -12,14 +12,11 @@ function fill() {
 function passItem(el) {
     document.getElementById('show_button').style.display = 'none';
     var e = document.getElementById(el).value;
-    
-
     $.ajax({
         url: 'php/getData.php',
         type: 'POST',
         data: { day: e },
         success: function (data) {
-            console.log(data);
             var json = $.parseJSON(data);
             var tbody = document.createElement('tbody');
             var x = document.getElementById('Classes').appendChild(tbody);
@@ -35,7 +32,7 @@ function passItem(el) {
                 $.each(val, function (k, v) {
                     var y = row.insertCell(-1);
                     y.innerHTML = v;
-                    if (c == 4) {
+                    if (c == 5) {
                         y = row.insertCell(-1);
                         if (v != 0) {
                             var btn = document.createElement('input');
@@ -44,7 +41,19 @@ function passItem(el) {
                             btn.value = "Enroll";
                             btn.id = "enroll";
                             btn.onclick = (function () {
-                                enroll();
+                                var t = document.getElementById('Classes').rows[i + 1].cells[0].innerHTML;
+                                $.ajax({
+                                    url: 'php/enrollCust.php',
+                                    type: 'POST',
+                                    data: { id: t },
+                                    success: function (data) {
+                                        if (data == 1) {
+                                            var pl = document.getElementById('Classes').rows[i + 1].cells[5];
+                                            var num = document.getElementById('Classes').rows[i + 1].cells[5].innerHTML;
+                                            pl.innerHTML = num - 1;
+                                        }
+                                    }
+                                });
                             });
                             y.appendChild(btn);
                         }
@@ -61,8 +70,4 @@ function passItem(el) {
             });
         }
     });
-}
-
-function enroll() {
-    console.log("Button Works");
 }
