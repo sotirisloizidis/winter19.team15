@@ -2,13 +2,13 @@
 
    include 'connectDB.php';
 
-     if(isset($_POST['days'])){
-        $day= $_POST['days'];
+     if(isset($_POST['day'])){
+        $day= $_POST['day'];
     }
 
     session_start();
 	$mail=$_SESSION["email"];
-    $sql="SELECT ClassID,ClassName,Number_of_places,Number_of_available,Hour,Description FROM ClassV1 WHERE Day='".$day."'";
+    $sql="SELECT ClassID,ClassName,Description,Hour,Number_of_places,Number_of_available FROM ClassV1 WHERE Day='".$day."'";
     mysqli_query($conn,$sql);
     $result = $conn->query($sql);
     $rows = array();
