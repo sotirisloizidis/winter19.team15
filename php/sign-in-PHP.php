@@ -22,7 +22,8 @@ if(($email=="") || ($password=="") ){
     //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php");
     return false;   
 }
-
+	session_start();
+	$_SESSION["email"] = $email;
 $query = "SELECT * FROM Customer WHERE Email='$email'";
 $result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
 
@@ -55,8 +56,7 @@ if (!$result) {
             return false;
         }
     }
-	session_start();
-	$_SESSION["email"] = $email;
+
            
 $conn->close();   
 
