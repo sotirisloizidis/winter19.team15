@@ -9,7 +9,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Latest compiled JavaScript -->
-    
+    <script>
+        $(function () {
+            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/navbar.html");
+        });
+    </script>
+
     <title>Ironsky Fitness</title>
     <link rel="shortcut icon" href="images/ironsky2.png" type="image/png">
     
@@ -22,61 +27,20 @@
 <body style="background-color:#1E4072;">
     <!-- START OF NAVIGATION BAR -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Trigger the Modal -->
-        <img id="myImg" src="images/QR.png" alt="Scan with your phone to sign-in." style="width:100%;max-width:50px">
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-            <!-- The Close Button -->
-            <span class="close">&times;</span>
-            <!-- Modal Content (The Image) -->
-            <img class="modal-content" id="img01">
-            <!-- Modal Caption (Image Text) -->
-            <div id="caption"></div>
-        </div>
-        <script src="js/QR.js"></script>
+    <div id="includedContent"></div>
 
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="mainTrainer.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="announcements.html">Announcements</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="messages.html">Messages</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="statistics.html">Statistics</a>
-                    </div>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="subscriptionsDue.html" tabindex="-1">Subscriptions-Due</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="createClass.html" tabindex="-1"> Create Class</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="sign-in.html" tabindex="-1">Logout</a>
-                </li>
-
-            </ul>
-
-        </div>
-    </nav>
     <!-- END OF NAVIGATION BAR -->
+    <br>
+    <div class="form-gap">
+        <h4 class="logo ml-4 text-white"> I R O N S K Y <br>  <span> FITNESS </span> </h4>
+    </div>
+    <br><br>
     <!-- START OF CONTAINER FOR CLASS CREATION -->
     <div class="container">
         <div class="row py-3">
             <div class="col-sm-12 mx-auto">
                 <!-- form card register -->
-                <form  data-ajax=”false”>
+                <form data-ajax=”false”>
                     <div class="card ">
                         <div style="overflow-x:auto;">
                             <div class="card-header">
@@ -91,8 +55,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="input2">Number of places:</label>
-                                    
-                                    <input  id="input2" class="form-control" typeof="number" required input type="number">
+
+                                    <input id="input2" class="form-control" typeof="number" required input type="number">
                                 </div>
                                 <!-- Default panel contents -->
 
@@ -244,16 +208,16 @@
                     </div>
                 </form>
 
-                
+
             </div>
-                </div>
-            <!-- /form card register -->
         </div>
-    
+        <!-- /form card register -->
+    </div>
+
     <script>
         $("table td").click(function () {
-            if($(this).attr("data-id")!="1")
-            $(this).toggleClass("checked");    
+            if ($(this).attr("data-id") != "1")
+                $(this).toggleClass("checked");
         });
         var positions = [];
         $("#submit").on("click", function () {
@@ -274,7 +238,7 @@
                     data: { positions: positions, className: className, nPlaces: nPlaces, description: description },
                     url: "postClass.php",
                     success: alert("data inserted")
-                    });
+                });
             }
         });
     </script>

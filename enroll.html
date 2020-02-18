@@ -1,195 +1,68 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.6.0">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Latest compiled JavaScript -->
+    <meta name="generator" content="HTML Tidy for HTML5 for Windows version 5.6.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js\enroll.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Latest compiled JavaScript -->
+    <script>
+        $(function () {
+            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/navbarclient.html");
+        });
+    </script>
 
-  <script src="js/enroll.js"></script> 
-  <title>Ironsky Fitness</title>
-  <link rel="shortcut icon" href="images/ironsky2.png" type="image/png">
-  <link href="css/enroll.css" rel="stylesheet">
+    <title>Ironsky Fitness</title>
+    <link rel="shortcut icon" href="images/ironsky2.png" type="image/png">
+    <link href="css/enroll.css" rel="stylesheet">
 </head>
-<body style="background-color:#1E4072;">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Trigger the Modal -->
-    <img id="myImg" src="images/QR.png" alt="Scan with your phone to sign-in." style=
-    "width:100%;max-width:50px"> <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <!-- The Close Button -->
-      <span class="close">&times;</span> <!-- Modal Content (The Image) -->
-       <img class="modal-content" id="img01"> <!-- Modal Caption (Image Text) -->
-      <div id="caption"></div>
+<body style="background-color:#1E4072;" onload="fill()">
+    <!-- START OF NAVIGATION BAR -->
+    <div id="includedContent"></div>
+
+    <!-- END OF NAVIGATION BAR -->
+
+    <br>
+    <div class="form-gap">
+        <h4 class="logo ml-4 text-white">
+            I R O N S K Y<br>
+            <span>FITNESS</span>
+        </h4>
     </div>
-    <script src="js/QR.js"></script>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a class="nav-link" href="main.html">Home <span class=
-        "sr-only">(current)</span></a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="announcements-client.html">Announcements</a> 
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="nutritionPlan.html">Nutrition Plan</a>
-          </div>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Membership</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="memberships.html">Change</a> <a class="dropdown-item"
-            href="payment.html">Payment</a>
-            <div class="dropdown-divider"></div><button class="dropdown-item" data-toggle="modal"
-            data-target="#myModal2">Cancel Subscription</button>
-          </div>
-        </li>
-        <li class="nav-item active"><a class="nav-link" href="support.html">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="sign-in.html" tabindex="-1">Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- The Modal -->
-  <div class="modal" id="myModal2">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Your subscription was canceled</h4><button type="button" class=
-          "close" data-dismiss="modal">&times;</button>
-        </div><!-- Modal Body -->
-        <div class="modal-body">
-          Access will be denied with the expiration of your current subscription.
-        </div><!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+    <div class="container">
+        <div class="card">
+
+
+            <h2> <strong>Available Classes</strong></span></h2>
+            
+            <div style="overflow-x:auto;">
+                <select name="day" id="selectDay">
+                    <option selected value="base">Please Select</option>
+
+                </select>
+                <button id="show_button" onClick="passItem('selectDay');">Check Availability</button>
+                <table class="table" id="Classes" style="background-color:white;">
+                    <thead>
+                        <tr class="table100-head">
+                            <th style="width:auto">Class</th>
+                            <th style="width:auto">Description</th>
+                            <th style="width:auto">Date</th>
+                            <th style="width:auto">Number of Places</th>
+                            <th style="width:auto">Available Places</th>
+                            <th style="width:auto">Enrollment</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
         </div>
-      </div>
     </div>
-  </div>
-  <div class="form-gap">
-    <h4 class="logo ml-4 text-white">I R O N S K Y<br>
-    <span>FITNESS</span></h4>
-  </div>
-  <div class="container">
-<div class="card">
 
-
-      <h2> <strong>Available Classes</strong></span></h2>
-	
-    <div style="overflow-x:auto;">
-      <table class="table" style="background-color:white;" >
-         
-        <thead> 
-        
-          <tr>
-            <th style="width:auto">No.</th>
-            <th style="width:auto">Class</th>
-            <th style="width:auto">Details</th>
-            <th style="width:auto">Enroll Me</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-             <td><img src="images/barbells.PNG" style="width:50px; height:50px; margin-top:-2px;"></td>
-            <td><strong>STRONGMAN</strong><br>
-            Training for strong people</td>
-            <td>
-              <div class="progress">
-              <div class="progress-bar bg-success" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:40%">Enrolled 30%
-                </div>
-                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">Free Spaces 70%
-                </div>
-                <!--<span class="sr-only">73%</span>  -->
-            </td>
-            <td>  
-            <input onclick="changeBt1()" type="button" class="btn btn-primary" value="Enroll" id="enrollBtn">                                                
-            </td>
-          </tr>
-          <tr>
-            <td><img src="images/bar.jpg" style="width:50px; height:50px; margin-top:-2px;"></td>
-            <td><strong>SQUAT CLASS</strong><br>
-            Leg class for everyone</td>
-            <td>
-              <div class="progress prog_len">
-                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">Enrolled
-                </div>
-              </div>
-              <span class="sr-only">57%</span>
-            </td>
-            <td>
-              <input onclick="changeBt2()" type="button" class="btn btn-primary" value="Enroll" id="enrollBtn2">  
-            </td>
-          </tr>
-          <tr>
-            <td><img src="images/run.jpg" style="width:50px; height:50px; margin-top:-2px;"></td>
-            <td><strong>ENDURANCE</strong><br>
-            Focuses on developing your energy production system in both<br> aerobic and anaerobic pathways</td>
-            <td>
-              <div class="progress prog_len">
-                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">Enrolled
-                </div>
-                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">Free Spaces
-                </div>
-              </div>
-              <span class="sr-only">90%</span>
-            </td>
-            <td>
-              <input onclick="changeBt3()" type="button" class="btn btn-primary" value="Enroll" id="enrollBtn3">  
-            </td>
-          </tr>
-          <tr>
-            <td><img src="images/equip.jpg" style="width:50px; height:50px; margin-top:-2px;"></td>
-            <td><strong>STRENGTH/GYMNASTICS</strong><br>
-            Learn to control your body in space while increasing your<br> strength and muscle endurance with limitless bodyweight exercises like<br> Pull-ups, Push ups, Muscle ups, Handstands etc.</td>
-            <td>
-              <div class="progress prog_len">
-                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"> Enrolled
-                </div>
-                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"> Free
-                </div>
-              </div>
-              <span class="sr-only">20%</span>
-            </td>
-            <td>
-              <input onclick="changeBt4()" type="button" class="btn btn-primary" value="Enroll" id="enrollBtn4">   
-            </td>
-          </tr>
-          <tr>
-            <td><img src="images/weight.jpg" style="width:50px; height:50px; margin-top:-2px;"></td>
-            <td><strong>STRENGTH/WEIGHTLIFTING</strong><br>
-            This class is responsible in developing your skill<br> in the Olympic Weightlifting Lifts<br> while increasing your overall<br> Strength and Power production.</td>
-            <td>
-              <div class="progress prog_len">
-                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">Enrolled
-                </div>
-                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">Free
-                </div>
-              </div>
-              <span class="sr-only">50%</span>
-            </td>
-            <td>
-              <input onclick="changeBt5()" type="button" class="btn btn-primary" value="Enroll" id="enrollBtn5">   
-            </td>
-          </tr>
-        </tbody>    
-      </table>
-      </div>
-       
-   </div>  
- </div>  
- 
-</div>
+    </div>
 </body>
 </html>
