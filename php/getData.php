@@ -14,7 +14,8 @@
         $day= $_POST['days'];
     }
 
-    echo $_SESSION["email"];
+    session_start();
+	$mail=$_SESSION["email"];
     $sql="SELECT Name,Description,Date,Number_Of_Places,Number_Of_Available FROM Class WHERE Date(Date)=(CURDATE()+".$day.")";
     mysqli_query($conn,$sql);
     $result = $conn->query($sql);
