@@ -55,7 +55,8 @@ if (!$result) {
             return false;
         }
     }
-
+	session_start();
+	$_SESSION["email"] = $email;
            
 $conn->close();   
 
