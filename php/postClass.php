@@ -10,8 +10,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
-print_r($_REQUEST["positions"]);
-
+echo "eginike re vlaka";
+$positions=($_POST["positions"]);
+echo json_encode($positions);
 $conn->close();
 ?>
