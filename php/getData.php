@@ -13,7 +13,7 @@
      if(isset($_POST['days'])){
         $day= $_POST['days'];
     }
-
+	session_start();
     echo $_SESSION["email"];
     $sql="SELECT Name,Description,Date,Number_Of_Places,Number_Of_Available FROM Class WHERE Date(Date)=(CURDATE()+".$day.")";
     mysqli_query($conn,$sql);
@@ -33,4 +33,5 @@
          echo "0 results";
     }
     */
+	$conn->close();
 ?>
