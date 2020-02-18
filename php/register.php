@@ -1,5 +1,15 @@
+<head>
+</head>
+<body>          
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</body>
 <?php
-include 'connectDB.php';
+   include 'connectDB.php';
 
 $name=$_POST["Name"];
 $surname=$_POST["Surname"];
@@ -14,9 +24,21 @@ while($row = mysqli_fetch_assoc($result)) {
     $emaildb = $row['Email'];
     
     if($email === $emaildb) {
-        echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html';
-      alert('The Email already exists');
-      </script>";
+       
+        echo "<script> 
+       swal({
+  title: 'This email already exists',
+  text: 'Try a different one.',
+  type: 'error',
+
+  showConfirmButton: true
+}, function(){
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html';
+}); 
+     $('.sweet-overlay').css('background-color','#1E4072');
+     
+      </script>"; 
+      
         exit();
     }
 }
@@ -38,7 +60,20 @@ We recommend that you change your password';
 $headers = "From: ironsky";
 mail($email,$subject,$message,$headers);
 
-header('Location: http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html'); 
+echo "<script> 
+              swal({
+  title: 'Success!',
+  text: 'User registered successfully.',
+  type: 'success',
+
+  showConfirmButton: true
+}, function(){
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html';
+}); 
+     $('.sweet-overlay').css('background-color','#1E4072');
+      </script>";
+
+
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -51,3 +86,4 @@ function generateRandomString($length = 10) {
 }
 
 ?>
+
