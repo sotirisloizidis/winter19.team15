@@ -12,29 +12,14 @@ function fill() {
 function passItem(el) {
     document.getElementById('show_button').style.display = 'none';
     var e = document.getElementById(el).value;
-    var n = 0;
-    for (let i = 0; i < 6; i++) {
-        if (e == dayNames[i]) {
-            n = i + 1;
-            break;
-        }
-    }
+    
 
-    var date = new Date();
-    var dayOfMonth = date.getDate();
-    var dayOfWeek = date.getDay();
-    var day;
-
-    if (n < dayOfWeek) {
-        day = dayOfWeek + n - 1;
-    } else {
-        day = n - dayOfWeek;
-    }
     $.ajax({
         url: 'php/getData.php',
         type: 'POST',
-        data: { days: day },
+        data: { day: e },
         success: function (data) {
+            console.log(data);
             var json = $.parseJSON(data);
             var tbody = document.createElement('tbody');
             var x = document.getElementById('Classes').appendChild(tbody);
