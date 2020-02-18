@@ -16,6 +16,22 @@ $surname=$_POST["Surname"];
 $address=$_POST["Address"];
 $tele=$_POST["Phone"];
 $email=$_POST["Email"];
+
+$query = "SELECT * FROM Customer";
+$result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
+
+while($row = mysqli_fetch_assoc($result)) {
+    $emaildb = $row['Email'];
+    
+    if($email === $emaildb) {
+        echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html';
+      alert('The Email already exists');
+      </script>";
+        exit();
+    }
+}
+
+
 $pass=generateRandomString();
 $hash = password_hash($pass, PASSWORD_DEFAULT);
 
@@ -43,4 +59,5 @@ function generateRandomString($length = 10) {
     }
     return $randomString;
 }
+
 ?>
