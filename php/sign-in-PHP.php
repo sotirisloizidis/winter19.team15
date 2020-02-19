@@ -1,3 +1,14 @@
+<head>
+</head>
+<body>          
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</body>
+
 <?php
 include 'connectDB.php';
 
@@ -7,14 +18,24 @@ $password=$_POST["Password"];
 
 
 if(($email=="") || ($password=="") ){
-      echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
-      alert('The Email and Password fields cannot be empty');
+      echo "<script> 
+       swal({
+  title: 'Email or Password field is empty',
+  text: 'The Email or Password field cannot be empty.',
+  type: 'error',
+
+  showConfirmButton: true
+}, function(){
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+}); 
+     $('.sweet-overlay').css('background-color','#1E4072');
+     
       </script>";
     //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php");
     return false;   
 }
-	session_start();
-	$_SESSION["email"] = $email;
+session_start();
+$_SESSION["email"] = $email;
 $query = "SELECT * FROM Customer WHERE Email='$email'";
 $result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
 
@@ -41,13 +62,23 @@ if (!$result) {
              header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html");
              return true;
         }else{
-            echo "<script> window.location.href='http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
-            alert('The Email or Password is incorrect');
-            </script>";
+            echo "<script> 
+       swal({
+  title: 'Password is Invalid',
+  text: 'The Email or Password is invalid.',
+  type: 'error',
+
+  showConfirmButton: true
+}, function(){
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+}); 
+     $('.sweet-overlay').css('background-color','#1E4072');
+     
+      </script>";
             return false;
         }
     }
-
+	
            
 $conn->close();   
 
