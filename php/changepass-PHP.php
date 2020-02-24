@@ -42,6 +42,7 @@ $verifypass=$_POST["Verify"];
             
             if($email === $emaildb) {
             
+                $flag=1;
                 $hash = password_hash($newpassword, PASSWORD_DEFAULT);
                 $sql = "UPDATE Customer SET Password='$hash' WHERE Email='$email'";
         
@@ -51,7 +52,7 @@ $verifypass=$_POST["Verify"];
                 
                 $subject='Password Changed';
                 $message='Helllo, '. $name. '.
-                Your password has changed.';
+Your password has changed.';
                 $headers = "From: ironsky";
                 
                 
@@ -76,10 +77,11 @@ $verifypass=$_POST["Verify"];
                 }
             }
         }
+        if($flag==0){
         echo "<script> 
               swal({
     title: 'Email not found!',
-    text: 'Unfortunately the email doesn't exist in the system.',
+    text: 'Unfortunately the email does not exist in the system.',
     type: 'error',
     
       showConfirmButton: true
@@ -89,7 +91,8 @@ $verifypass=$_POST["Verify"];
          $('.sweet-overlay').css('background-color','#1E4072');
           </script>";
           exit();
-    
+          }
+          
     }  
 $conn->close();
 ?>
