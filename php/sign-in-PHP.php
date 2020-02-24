@@ -26,7 +26,7 @@ if(($email=="") || ($password=="") ){
 
   showConfirmButton: true
 }, function(){
-      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/sign-in.php';
 }); 
      $('.sweet-overlay').css('background-color','#1E4072');
      
@@ -47,7 +47,7 @@ if (!$result) {
   $row = mysqli_fetch_assoc($result);  
   
   if (password_verify($password,$row['Password'])){ 
-       header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/main.html");
+       header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
        return true;
   }else{
         $query2 = "SELECT * FROM Trainer WHERE Email='$email'";
@@ -59,7 +59,7 @@ if (!$result) {
         }  
         $row2 = mysqli_fetch_assoc($result2);
         if (password_verify($password, $row2['Password'])){ 
-             header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html");
+             header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/mainTrainer.html");
              return true;
         }else{
             echo "<script> 
@@ -70,7 +70,7 @@ if (!$result) {
 
   showConfirmButton: true
 }, function(){
-      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php';
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/sign-in.php';
 }); 
      $('.sweet-overlay').css('background-color','#1E4072');
      

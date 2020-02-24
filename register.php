@@ -32,7 +32,7 @@ We recommend that you change your password';
 $headers = "From: ironsky";
 mail($email,$subject,$message,$headers);
 
-header('Location: http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/mainTrainer.html'); 
+header('Location: http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/mainTrainer.html'); 
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

@@ -8,7 +8,7 @@ $message=$_POST["message"];
 
 if(($emailCustomer=="")||($emailTrainer=="")||($subject=="")||($message==""))
 {
-     header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/supportTest.php");
+     header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/supportTest.php");
         return false;
 }
 else
