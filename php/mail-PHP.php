@@ -43,7 +43,7 @@ if(($email=="")){
 
     $subject='Password Deactivation';
     $message='Helllo, '. $name. '.
-    To change your password press the following link:';
+    To change your password press the following link: http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/changepass.php';
     $headers = "From: ironsky";
 
 
