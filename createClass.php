@@ -298,7 +298,9 @@ while($row = mysqli_fetch_assoc($result)) {
             }
              
         });
+         
         });
+        
     </script>
     <!-- END OF CONTAINER FOR CLASS CREATION -->
 </body>
