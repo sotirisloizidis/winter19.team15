@@ -52,7 +52,7 @@ while($row = mysqli_fetch_assoc($result)) {
 </head>
 <style>
     .checked {
-    background-color: #2E4053;
+    background-color: #800000;
 }
 .alreadyChecked{
     background-color:#484848;
@@ -80,20 +80,12 @@ while($row = mysqli_fetch_assoc($result)) {
                     <div class="card ">
                         <div style="overflow-x:auto;">
                             <div class="card-header">
-                                <h3 class="mb-0">Create New Class</h3>
+                                <h3 class="mb-0">Delete Classes</h3>
                             </div>
 
                             <div class="card-body">
 
-                                <div class="form-group">
-                                    <label for="input1">Class Name</label>
-                                    <input type="text" class="form-control" typeof="text" required id="input1" placeholder="Class name" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="input2">Number of places:</label>
-
-                                    <input id="input2" class="form-control" typeof="number" required input type="number">
-                                </div>
+                                
                                 <!-- Default panel contents -->
 
                                 <div class="row">
@@ -228,16 +220,8 @@ while($row = mysqli_fetch_assoc($result)) {
                                     </div>
                                 </div>
                             </div>
-
-
-
-
                             <div class="form-group">
-                                <label for="input3">Brief Description</label>
-                                <textarea class="form-control" typeof="text" required id="input3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button id="submit" class="btn btn-success btn-lg float-right">Create</button>
+                                <button id="submit" class="btn btn-success btn-lg float-right">Delete</button>
                             </div>
 
                         </div>
@@ -251,59 +235,48 @@ while($row = mysqli_fetch_assoc($result)) {
         <!-- /form card register -->
     </div>
       
-    <script>
-      
-    //$( document ).ready(function() {
-     
-    var php_var = <?php echo json_encode($classes); ?>;
+    <script>  
+   var php_var = <?php echo json_encode($classes); ?>;
     var obj=php_var;
         obj.forEach(function(obj) {
             $("table td").each(function () {
             if ($(this).attr("data-id") != "1"){
              if(($(this).attr("data-position") === obj.classIndex)&&(!($(this).hasClass("alreadyChecked")))){
-              // obj["classIndex"] = $(this).attr("data-position");
-              // obj["className"] = obj.className;
               document.getElementById(($(this).attr("data-position"))).innerHTML=obj.className;   
                 $(this).toggleClass("alreadyChecked");
-                
                 }
                 }
          }); 
          }); 
 
         $("table td").click(function () {
-            if (($(this).attr("data-id") != "1")&&(!($(this).hasClass("alreadyChecked"))))
+            if (($(this).attr("data-id") != "1")&&(($(this).hasClass("alreadyChecked")))){
+                 $(this).removeClass("alreadyChecked");
                 $(this).toggleClass("checked");
+                }else if (($(this).attr("data-id") != "1")&&(($(this).hasClass("checked")))){
+                   $(this).removeClass("checked");
+                $(this).toggleClass("alreadyChecked");
+                }
         });
-        var positions = [];
-        $("#submit").on("click", function (e) {
-            var className = $("#input1").val();
-            var nPlaces = $("#input2").val();
-            var description = $("#input3").val();
-            if (!className || !nPlaces || !description) {
-                return; 
-            } else {
-               
+        var positionsR = [];
+        $("#submit").on("click", function (e) {    
                 $("table td").each(function () {
                     if ($(this).hasClass("checked")) {
-                        positions.push($(this).attr("data-position"));
+                    console.log("eprepe na mpi meston positions")
+                        positionsR.push($(this).attr("data-position"));
                     }      
                                    
-                }); 
-                  
+                });
+                    console.log(positionsR.toString()); 
+                    console.log("X");
                   $.ajax({
-                    url:  "php/postClass.php",
+                    url:  "php/removeClass.php",
                     type: "POST",
-                    data: { className:className,positions: positions,nPlaces:nPlaces,description:description },
+                    data: { positionsR: positionsR },
                     success: function(data){
                     }
-                });
-            }
-          //location.reload();    
-        });
-         
-       // });  
-        
+                });   
+        });   
     </script>
     <!-- END OF CONTAINER FOR CLASS CREATION -->
 </body>

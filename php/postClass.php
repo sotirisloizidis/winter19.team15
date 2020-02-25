@@ -1,10 +1,10 @@
 <?php
 include 'connectDB.php';
-
+    
   var_dump ("hehehehehhe");
 $positions=($_POST["positions"]);
 $className=($_POST["className"]);
-$description=($_POST["description"]);
+$description=($_POST["description"]); 
 $places=($_POST["nPlaces"]);
 for( $i=0; $i<count($positions);$i++){
     $position=$positions[$i];
