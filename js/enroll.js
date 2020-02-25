@@ -26,11 +26,15 @@ function passItem(el) {
                 y.colSpan = "6";
                 y.innerHTML = "Unfortunately no classes are available";
             }
+            
             $(json).each(function (i, val) {
                 var row = tbody.insertRow(i);
                 var c = 0;
                 $.each(val, function (k, v) {
                     var y = row.insertCell(-1);
+                    if(k==0){
+                        var classid=v;
+                    }
                     y.innerHTML = v;
                     if (c == 5) {
                         y = row.insertCell(-1);
@@ -40,7 +44,7 @@ function passItem(el) {
                             btn.className = "btn btn-primary";
                             btn.value = "Enroll";
                             btn.id = "enroll";
-                            btn.onclick = (function () {
+                            btn.onclick =(function () {
                                 var t = document.getElementById('Classes').rows[i + 1].cells[0].innerHTML;
                                 $.ajax({
                                     url: 'php/enrollCust.php',
@@ -51,6 +55,8 @@ function passItem(el) {
                                             var pl = document.getElementById('Classes').rows[i + 1].cells[5];
                                             var num = document.getElementById('Classes').rows[i + 1].cells[5].innerHTML;
                                             pl.innerHTML = num - 1;
+                                            btn.parentNode.removeChild(btn);
+                                            location.reload();
                                         }
                                     }
                                 });
