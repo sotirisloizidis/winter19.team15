@@ -15,7 +15,8 @@
             $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbarclient.html");
         });
         
-        $( document ).ready($.ajax({ url: './php/pastPrograms.php', success: function(data) { console.log(data); } }));
+       $.ajax({ url: "./php/pastPrograms.php", type:"GET",  success: function(data) { alert(data); } });
+        $.ajax({ url: "./php/test.txt", type:"GET",  success: function(data) { alert(data); } });
      </script>
     <title>Ironsky Fitness</title>
     <link rel="shortcut icon" href="images/ironsky2.png" type="image/png">

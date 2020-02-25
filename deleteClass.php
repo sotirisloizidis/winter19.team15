@@ -1,4 +1,4 @@
-ï»¿<?php sleep(1); ?>
+<?php sleep(1); ?>
 
 <?php
 $servername="localhost";
@@ -76,7 +76,7 @@ while($row = mysqli_fetch_assoc($result)) {
         <div class="row py-3">
             <div class="col-sm-12 mx-auto">
                 <!-- form card register -->
-                <form data-ajax=â€falseâ€>
+                <form data-ajax=”false”>
                     <div class="card ">
                         <div style="overflow-x:auto;">
                             <div class="card-header">
