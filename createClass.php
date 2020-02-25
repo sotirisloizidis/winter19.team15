@@ -39,7 +39,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <!-- Latest compiled JavaScript -->
     <script>
         $(function () {
-            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/navbar.html");
+            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbar.html");
         });
     </script>
 
