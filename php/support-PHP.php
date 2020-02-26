@@ -1,3 +1,15 @@
+
+<head>
+</head>
+<body>          
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</body>
+
 <?php
 include 'connectDB.php';
 
@@ -43,16 +55,19 @@ else
          
         mail($emailTrainer,$subject,$message,$headers);
        
-        // Sending email
-           
-       /* if(mail($emailTrainer,$subject,$message,$headers))
-        {
-             echo 'Your mail has been sent successfully.';
-        }        
-        else
-        {
-            echo 'Unable to send email. Please try again.';
-        }   */
+        echo "<script> 
+       swal({
+  title: 'Success!',
+  text: 'Your email was sent successfully.',
+  type: 'success',
+
+  showConfirmButton: true
+}, function(){
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/sign-in.php';
+}); 
+     $('.sweet-overlay').css('background-color','#1E4072');
+     
+      </script>";
     }
     
 }

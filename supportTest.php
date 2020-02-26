@@ -27,11 +27,7 @@
     <link rel="stylesheet" type="text/css" href="css/support.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
-    <script>
-        $(function () {
-            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/navbarclient.html");
-        });
-    </script>
+    
 
 
 </head>
@@ -46,7 +42,7 @@
 
     <div class="container-contact100" style="background-color:#1E4072;">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form" method="POST" action= "php/support-PHP">
+            <form class="contact100-form validate-form" method="POST" action= "php/support-PHP.php">
                 <span class="contact100-form-title">
                     Send Us A Message
                 </span>
@@ -83,7 +79,7 @@
 
                 </div>
                 <div class="container-contact100-form-btn">
-                    <a href="main.html" class="contact100-form-btn ret">
+                    <a href="sign-in.php" class="contact100-form-btn ret">
                         Return
                     </a>
 
