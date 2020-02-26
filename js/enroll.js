@@ -54,23 +54,67 @@ function passItem(el) {
               type: 'POST',
               data: { day: e, datediff: diff },
               success: function (data) {
-                
+                var classids=$.parseJSON(data);
+                var ar = new Array();
+                if($.trim(json) == ''){
+                  ar.push(-1);
+                }else{
+                    $(classids).each(function(i,val){
+                      $.each(val,function(k,v){
+                        ar.push(v);
+                      });
+                    });
+                }
 
-            }
-            });
+
 
             $(json).each(function (i, val) {
                 var row = tbody.insertRow(i);
                 var c = 0;
                 $.each(val, function (k, v) {
                     var y = row.insertCell(-1);
+                    var classid;
                     if(k==0){
-                        var classid=v;
+                         classid=v;
                     }
                     y.innerHTML = v;
                     if (c == 5) {
                         y = row.insertCell(-1);
+                        var check=true;
                         if (v != 0) {
+                          var cl = document.getElementById('Classes').rows[i + 1].cells[0].innerHTML;
+                          console.log(cl);
+                          console.log(ar[1]);
+                          for(var j=0;j<ar.length;j++){
+                            if(ar[j]==cl){
+                              console.log("erkume");
+                              check=false;
+                            }
+                          }
+                          if(check==false){
+                            var unbtn=document.createElement('input');
+                            unbtn.type="button";
+                            unbtn.className="btn btn-primary";
+                            unbtn.value = "UnEnroll";
+                            unbtn.id = "unenroll";
+                            unbtn.style.background="red";
+                            unbtn.onclick = (function(){
+                              $.ajax({
+                                  url: 'php/unenrollCust.php',
+                                  type: 'POST',
+                                  data: { id: cl , datediff: diff },
+                                  success: function (data) {
+                                    var pl = document.getElementById('Classes').rows[i + 1].cells[5];
+                                    var num = document.getElementById('Classes').rows[i + 1].cells[5].innerHTML;
+                                    num++;
+                                    pl.innerHTML = num;
+                                    unbtn.parentNode.removeChild(unbtn);
+                                    location.reload();
+                                }
+                            });
+                          });
+                          y.appendChild(unbtn);
+                        }else{
                             var btn = document.createElement('input');
                             btn.type = "button";
                             btn.className = "btn btn-primary";
@@ -89,11 +133,13 @@ function passItem(el) {
                                             pl.innerHTML = num - 1;
                                             btn.parentNode.removeChild(btn);
                                             location.reload();
+
                                         }
                                     }
                                 });
                             });
                             y.appendChild(btn);
+                          }
                         }
                         y = row.insertCell(-1);
                         var img = document.createElement('img');
@@ -104,8 +150,10 @@ function passItem(el) {
 
                     c++;
 
-                });
-            });
-        }
-    });
+                });//for each
+            });//for each
+          }
+        });
+        }//success function of first ajax
+    });//ajax
 }
