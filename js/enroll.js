@@ -1,4 +1,3 @@
-
 const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 function fill() {
     var date = new Date();
@@ -12,10 +11,33 @@ function fill() {
 function passItem(el) {
     document.getElementById('show_button').style.display = 'none';
     var e = document.getElementById(el).value;
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    var date=new Date();
+    var day = date.getDay();
+    var pos;
+    for(let i=0;i<=6;i++){
+      if(e==weekday[i]){
+        pos=i;
+      }
+    }
+    var diff;
+    if(pos>=day){
+      diff=pos-day;
+    }else{
+      diff=day-pos;
+      diff=7-diff;
+    }
     $.ajax({
         url: 'php/getData.php',
         type: 'POST',
-        data: { day: e },
+        data: { day: e, datediff: diff },
         success: function (data) {
             var json = $.parseJSON(data);
             var tbody = document.createElement('tbody');
@@ -26,7 +48,17 @@ function passItem(el) {
                 y.colSpan = "6";
                 y.innerHTML = "Unfortunately no classes are available";
             }
-            
+
+            $.ajax({
+              url: 'php/checkEnrolled.php',
+              type: 'POST',
+              data: { day: e, datediff: diff },
+              success: function (data) {
+                
+
+            }
+            });
+
             $(json).each(function (i, val) {
                 var row = tbody.insertRow(i);
                 var c = 0;
@@ -49,7 +81,7 @@ function passItem(el) {
                                 $.ajax({
                                     url: 'php/enrollCust.php',
                                     type: 'POST',
-                                    data: { id: t },
+                                    data: { id: t , datediff: diff },
                                     success: function (data) {
                                         if (data == 1) {
                                             var pl = document.getElementById('Classes').rows[i + 1].cells[5];
