@@ -1,6 +1,5 @@
 #!/bin/bash
 
- #!/bin/bash
 #count=100
 #if [ $count -eq 100 ]; then echo 'Count is 100'; fi
 #now=$(date +"%d%m%Y")
@@ -46,7 +45,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day0.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day0.txt;
 echo $day-$nums
 i=$((i+1))
 
@@ -63,7 +62,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day1.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day1.txt;
 echo $day-$nums
 i=$((i+1))
 
@@ -80,7 +79,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day2.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day2.txt;
 echo $day-$nums
 i=$((i+1))
 
@@ -97,7 +96,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day3.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day3.txt;
 echo $day-$nums
 i=$((i+1))
 
@@ -114,7 +113,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day4.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day4.txt;
 echo $day-$nums
 i=$((i+1))
 
@@ -131,7 +130,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day5.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day5.txt;
 echo $day-$nums
 i=$((i+1))
 
@@ -148,7 +147,7 @@ then
 fi 
 nums=$(date --date="$i day ago" +"%d%m%Y")
 getDay
-curl "https://www.ironsky-fitness.com/programming/$day-$nums" > day6.txt;
+curl "https://www.ironsky-fitness.com/programming/$day-$nums" > /WebData/assignments/ironsky/winter19.team15/php/day6.txt;
 echo $day-$nums
 
 

@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Latest compiled JavaScript -->
     <script>
-        $(function () {
-            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/navbarclient.html");
+        $(function () 
+	{
+            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbarclient.html");
         });
     </script>
 
@@ -19,37 +20,9 @@
     <link rel="shortcut icon" href="images/ironsky2.png" type="image/png">
 
 <style>
-    .checked {
+.checked
+{
     background-color: blue;
-}
-
-.zoom {
-
-  transition: transform .2s;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-}
-
-.zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
-}
-
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
 }
 </style>
    
@@ -86,8 +59,11 @@
 
                                 <div class="row">
                                     <div class="col-sm-18 mx-auto">
-                                        <table class="table table-bordered">
-                                            <thead>
+                                        <table class="table table-bordered" >
+					<form class="contact100-form validate-form" method="GET" action= "php/Program-fetch">
+
+                                         
+						<thead>
                                                 <tr>
                                                  
                                                     <th scope="col"><?php echo  date("l  d-m-Y", strtotime('-1 days')). "<br>"; ?></th>
@@ -100,58 +76,18 @@
                                             </thead>
                                            
 					 	<tbody>
-                                               
+                                              
                                                  <tr>
                                                  
                                                  
 
 						<td data-id="0"  data-position="0-1">
-						 
-						<div class="zoom">
-						<p class=""  style="white-space:pre-wrap;"> STRENGTH / GYMNASTICS - ENDURANCE  </p>
-            					<div class="container">
-						<a href="" class="btn btn-info btn-lg" id="myBtn"> Read More </a>						
-						</div>
+						    						
 						
-						<!-- The Modal -->
-						 <div class="modal fade" id="myModal" role="dialog">
-  						  <div class="modal-dialog">						     <
+					
+					
 						
-						!-- Modal content-->
-    						 <div class="modal-content">
-      						  <div class="modal-header">
-        					  <button type="button" class="close" data-dismiss="modal">&times;</button>       
-						
-						<p class="" style="white-space:pre-wrap;">
-						<div class="modal-header">
-						<strong>ENDURANCE <br></strong>
-						</div>
-						
-						<div class="modal-body">
-						<span style="text-decoration:underline">2 Total Intervals:</span>
-						<br>8:00 AMRAP <br>800m Run <br>40 Wallballs 9/6kg <br>20 Toes to bar <br>10 Muscle ups <br>
-						<em>Rest 5min</em></p>
-						<p class="" style="white-space:pre-wrap;">
-						</div>
-						
-						<div class="modal-footer">
-						<strong>STRENGTH/ GYMNASTICS </strong>
-						</div>
-						<div class="modal-body">
-						<br>2 ROUNDS: <br>X20 PRONATED PVC LIFTS <br>X20 STANDING HOLLOW PULLDOWNS <br>X5 HOLLOW IYT <br>
-						<em>Lats and straight arm strength are an important part of maintaining healthy and strong shoulders, lats and control in your movements.  
-						</em>
-						<br><br><span style="text-decoration:underline">CHEST TO BAR PULL-UP STRENGTH:</span>
-						<br>4 SETS: <br>CTB ASSIST 3/3/3/3 <br>CTB BANDED PULLDOWNS X15  <br><br>
-						<span style="text-decoration:underline">PULL-UP ENDURANCE: </span>
-						<br>1 SET: <br>X30 BEAT SWINGS <br>MAX STRICT PULL UPS  <br><br>3 SETS: <br>10 x ALT. BENT OVER ROW </p>
-						<p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
-						 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					  	 </div>
-						</div>					
-						</div>
-						</div>
-	
+							
 						</td>
 
 
@@ -179,8 +115,7 @@
                                                  <td data-id="0"  data-position="0-6"></td>
                                                
 						 </tr>
-                                               
-                                              
+                                                                                            
                                             </tbody>
                                         </table>
                                     </div>
@@ -202,20 +137,6 @@
         <!-- /form card register -->
     </div>
 <script>
-function mouseOver()
-{
-  document.getElementById("demo").style.color = "silver";
-}
-
-function mouseOut() 
-{
-  document.getElementById("demo").style.color = "navy";
-}
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
 </script>   
  <!-- END OF CONTAINER FOR CLASS CREATION -->
 
