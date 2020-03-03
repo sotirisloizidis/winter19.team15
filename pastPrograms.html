@@ -210,18 +210,25 @@
               }                        
               $("#content0").html(text); 
               
-            /* var i = 0;
-             let x = document.getElementsByClassName("BlogItem-title");
+             var i = data.indexOf('<h1 class="BlogItem-title" data-content-field="title">');
+             var j = data.indexOf('</h1>');
              let y = document.getElementById("list-n1-list");
+             var title = "";
+             console.log(i + " " + j);
              if(!dayEmpty0)
              {
-                y.innerText = x[0].innerText;
-                //i = i +1;
+                for(var k = i+54; k < j; k++)
+                {
+                    title = title + data[k];
+                    console.log(data[k]);
+                }
+                 $("#list-n1-list").html(title);
+                alert(title);
              }
              else
              {
                 y.innerText = " ";
-             }   */
+             }   
           },async: false 
          });
          
@@ -360,7 +367,7 @@
              var x = document.getElementsByClassName("BlogItem-title");
              console.log(x);
              var y = document.getElementById("list-n1-list");
-             if(!dayEmpty0)
+             /*if(!dayEmpty0)
              {
                 y.innerText = x[i].innerText;
                 i = i +1;
@@ -368,7 +375,7 @@
              else
              {
                 y.innerText = " ";
-             }
+             }     */
              y = document.getElementById("list-n2-list");
              if(!dayEmpty1)
              {
