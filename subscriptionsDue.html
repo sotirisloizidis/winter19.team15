@@ -47,7 +47,7 @@
   </div>
     <br><br>
   <div class="container">
-        <div style="color:white; font-size:2vw;"><strong>Memberships Due/Expired.</strong></div>
+        <div style="color:white; font-size:2vw;"><strong>Expired Memberships</strong></div>
       <div class="row">
       
   <div class="col-6 mx-auto">
@@ -61,6 +61,7 @@
       <a class="list-group-item list-group-item-action" id="list-n6-list" data-toggle="list" href="#list-n6" role="tab" aria-controls="n6" style="text-align:center; font-size:2vw;">username12</a>
       <a class="list-group-item list-group-item-action" id="list-n7-list" data-toggle="list" href="#list-n7" role="tab" aria-controls="n7" style="text-align:center; font-size:2vw;">username87</a>
       <a class="list-group-item list-group-item-action" id="list-n8-list" data-toggle="list" href="#list-n8" role="tab" aria-controls="n8" style="text-align:center; font-size:2vw;">username99</a>
+       <a class="list-group-item list-group-item-action" id="list-n9-list" data-toggle="list" href="#list-n9" role="tab" aria-controls="n9" style="text-align:center; font-size:2vw;">username100</a>
     </div>
   </div>
   <div class="col-6 mx-auto">
@@ -129,6 +130,20 @@
 </div>
   </div>
    </div>
-   
+      <script>
+        var i=0;
+       var expiredClient = document.createElement('div');
+       div class="tab-pane fade show active" id="list-n1" role="tabpanel" aria-labelledby="list-n1-list"
+    expiredClient.id = i++;
+    expiredClient.className = 'tab-pane fade show active';
+    document.getElementsByTagName('body')[0].appendChild(expiredClient);
+
+    // Now create and append to iDiv
+    var innerDiv = document.createElement('div');
+    innerDiv.className = 'block-2';
+
+// The variable iDiv is still good... Just append to it.
+iDiv.appendChild(innerDiv);
+      </script>
 
   </body>
