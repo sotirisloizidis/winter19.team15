@@ -97,21 +97,23 @@ while($row = mysqli_fetch_assoc($result)) {
             expiredClient.classList.add("notCountable");
         }
       expiredClient.id = obj.customerID;
+     // console.log(obj.customerID);
       expiredClient.setAttribute('data-toggle','list');
       expiredClient.setAttribute('role','tab');
       expiredClient.setAttribute('aria-controls','tab');
       expiredClient.setAttribute('style','text-align:center; font-size:3vw;');
       expiredClient.innerHTML=obj.customerName+" "+obj.customerSurname;
       var hreference="#inner";
-      hreference+=i;
+      hreference+=obj.customerID;
       expiredClient.setAttribute('href',hreference);
       
-      console.log(hreference);
+     // console.log(hreference);
   
     //Dynamically Create div for details of expired membership.
     var innerDiv = document.createElement('div');
     var innerName="inner"+obj.customerID;
     innerDiv.id=innerName;
+    //console.log(obj.customerID);
     if(i==0)
     innerDiv.className = 'tab-pane fade in active show';
     else
@@ -125,6 +127,10 @@ while($row = mysqli_fetch_assoc($result)) {
     var spanTag = document.createElement('span');
     var buttonTag = document.createElement('button')
     buttonTag.setAttribute('type','submit');
+    innerName=obj.customerID;
+    innerName+="b";
+     buttonTag.setAttribute('onClick','reply_click(this.id)');
+     buttonTag.setAttribute('id',innerName);
     buttonTag.setAttribute('class','btn btn-warning btn-lg float-right');
      //buttonTag.setAttribute('width','100%');
     buttonTag.setAttribute('data-toggle','modal');
@@ -147,7 +153,9 @@ while($row = mysqli_fetch_assoc($result)) {
     var innermembershipsDiv=document.createElement('div');
      innermembershipsDiv.setAttribute('data-toggle','list');
      innermembershipsDiv.setAttribute('role','tab');
+      innermembershipsDiv.setAttribute('id',innerName);
      innermembershipsDiv.setAttribute('style','text-align:center; font-size:3vw;')
+     //innermembershipsDiv.classList.add(innerDiv.id);
         switch(j) {
         case 1:
         if(obj.type==="Unlimited 3 Months")
@@ -223,7 +231,7 @@ while($row = mysqli_fetch_assoc($result)) {
         // Do nothing
         break;
     }
-    console.log(j);
+   // console.log(j);
      membershipsDiv.appendChild(innermembershipsDiv);
   }
     h5Tag.appendChild(membershipsDiv);
@@ -238,13 +246,23 @@ while($row = mysqli_fetch_assoc($result)) {
     
    }
    var updatedCustomers = [];
-        $("button").on("click", function (e) {     
+        function reply_click(clicked_id){
+      //console.log(clicked_id);
+        var buttonID=clicked_id;
+        //buttonID+="b";
+         console.log(buttonID);     
                 $("div").each(function () {
                     if($(this).hasClass("notCountable")){
-                        console.log($(this).attr("id"));
+                        //console.log($(this).attr("id"));
                         updatedCustomers.push($(this).attr("id"));
-                        updatedCustomers.push(obj[0].type);
-                    }      
+                    }
+                      var newMembership=($(this).attr('id'));
+                      console.log(newMembership);
+                    if(($(this).hasClass("list-group-item list-group-item-action active"))&&(newMembership==buttonID)){
+                        updatedCustomers.push(($(this).innerHTML)); 
+                      //updatedCustomers.push($(this).attr("id"));
+                      //console.log("opas");  
+                      }
                 }); 
                   $.ajax({
                     url:  "php/updateExpiredMembership.php",
@@ -256,7 +274,7 @@ while($row = mysqli_fetch_assoc($result)) {
                 });
             
           //location.reload();    
-        }); 
+       }
    
       </script>
 

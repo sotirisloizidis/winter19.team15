@@ -73,17 +73,35 @@
                         <option value="1.9">I am super active (very hard exercise or sports and a physical job) </option>
                       </select>
                     </div>
-                <div class="form-group">
+                
+                 </form>
+                 </div>
+                 <div class="card-header">
+                        <h4 class="mb-0">Weight Gain/Loss Goal (Optional)</h4>
+                    </div>
+                 <div class="card-body">
+            <form class="form">
+                <div class="form-group col-7 col-lg-4">
+                    <label for="weight-goal">Weight Goal</label>
+                    <input type="text" placeholder="ex. 80 (in kg)" class="form-control" id="weight-goal" name="weight-goal" required="">
+                </div>
+                <div class="form-group  col-7 col-lg-4">
+                    <label for="time-span">Time Span</label>
+                    <input type="text" placeholder="ex. 60 (in days)" class="form-control" id="time-span" name="time-span" required="">
+                </div>
+                 <div class="form-group">
                 <div class="row">
                 <div class="col-7 mx-auto">
                     <h6><span hidden id="error-span" style="font-size:60%; color:red;">&#42;Please enter realistic information</span></h6>
                 </div>
+                
+                 
                 <div class="col-5">
-                   <button type="button" onclick="calculate()"class="btn btn-success btn-lg">Calculate</button>
+                   <button type="button" onclick="calculate()"class="btn btn-success btn-lg float-right">Calculate</button>
                 </div>
                 </div>
-                </div>
-                           
+                 </div>         
+                          
             </form>
         </div>
     </div>
@@ -104,9 +122,21 @@
                 </div>
                            
             </form>
-        </div>        
+        </div>   
+        <div class="card-body" id="goalcard" hidden>
+            <form class="form" role="form">
+                    <div class="form-group ">
+                       <h3> <label for="cal-goal">Calories per day to achieve goal: </label> </h3>
+                        <h1><span style="width:100%; padding-top:5%; font-size:150%;" class="badge badge-warning" id="cal-goal"></span></h1>
+                        
+
+                </div>
+                           
+            </form>
+        </div>     
         </div>
-    </div>
+        
+    
 		</div>
         </div>
     
@@ -131,6 +161,31 @@
                 document.getElementById('bmr').innerHTML= bmr;
                 document.getElementById('calories').innerHTML= calories;
                 
+                if(((document.getElementById('weight-goal').value)!="")&&((document.getElementById('time-span').value)!="")) {
+                    var goal= document.getElementById('weight-goal').value;
+                    var days= document.getElementById('time-span').value;
+                    
+                    if(goal>=weight){
+                        var dif= goal-weight;
+                    }else{
+                        var dif= -(goal-weight);
+                    }  
+                    var temp = dif/0.0001296;
+                    var calperday = Math.round(temp/days); 
+                    if(goal>=weight){
+                        var goalcal= calories + calperday;
+                        document.getElementById('goalcard').hidden= false;
+                        document.getElementById('cal-goal').innerHTML= goalcal;
+                    }else{
+                        var goalcal= calories - calperday;
+                        document.getElementById('goalcard').hidden= false;
+                        document.getElementById('cal-goal').innerHTML= goalcal;
+                    }
+                }else{
+                    document.getElementById('goalcard').hidden= true;    
+                }
+                
+                
             }else if((document.getElementById('female-checked').checked)&&((document.getElementById('height').value)!="")&&((document.getElementById('age').value)!="")&&((document.getElementById('weight').value)!="")){
                  
                 var height = document.getElementById('height').value;
@@ -148,6 +203,30 @@
                 document.getElementById('bmrcard').hidden= false;
                 document.getElementById('bmr').innerHTML= bmr;
                 document.getElementById('calories').innerHTML= calories;
+                
+                if(((document.getElementById('weight-goal').value)!="")&&((document.getElementById('time-span').value)!="")) {
+                    var goal= document.getElementById('weight-goal').value;
+                    var days= document.getElementById('time-span').value;
+                    if(goal>=weight){
+                        var dif= goal-weight;
+                    }else{
+                        var dif= -(goal-weight);
+                    }  
+                    var temp = dif/0.0001296;
+                    var calperday = Math.round(temp/days);
+                
+                    if(goal>=weight){
+                        var goalcal = calories + calperday;
+                        document.getElementById('goalcard').hidden= false;
+                        document.getElementById('cal-goal').innerHTML= goalcal;
+                    }else{
+                        var goalcal= calories - calperday;
+                        document.getElementById('goalcard').hidden= false;
+                        document.getElementById('cal-goal').innerHTML= goalcal;
+                    }
+                }else{
+                    document.getElementById('goalcard').hidden= true;    
+                }
             }else{
                  document.getElementById('error-span').hidden=false;
             }
