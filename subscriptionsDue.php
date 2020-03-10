@@ -1,4 +1,4 @@
-﻿<?php sleep(1); ?>
+<?php sleep(1); ?>
 
 <?php
 $servername="localhost";
@@ -56,7 +56,7 @@ while($row = mysqli_fetch_assoc($result)) {
       <div id="includedContent"></div>
     <!-- END OF NAVIGATION BAR -->
   <!-- Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -67,7 +67,7 @@ while($row = mysqli_fetch_assoc($result)) {
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="list-group" id="memberships-tab" role="tablist"></div><br>
   <div class="form-gap">
       <h4 class="logo ml-4 text-white"> I R O N S K Y <br>  <span> FITNESS </span> </h4>
@@ -133,8 +133,8 @@ while($row = mysqli_fetch_assoc($result)) {
      buttonTag.setAttribute('id',innerName);
     buttonTag.setAttribute('class','btn btn-warning btn-lg float-right');
      //buttonTag.setAttribute('width','100%');
-    buttonTag.setAttribute('data-toggle','modal');
-    buttonTag.setAttribute('data-target','#successModal');
+    //buttonTag.setAttribute('data-toggle','modal');
+    //buttonTag.setAttribute('data-target','#successModal');
     buttonTag.innerHTML="Renew";
     strongTag.innerHTML="EXPIRED IN:<br>";
     spanTag.innerHTML=obj.exp_date+"<br><br>";
@@ -153,7 +153,8 @@ while($row = mysqli_fetch_assoc($result)) {
     var innermembershipsDiv=document.createElement('div');
      innermembershipsDiv.setAttribute('data-toggle','list');
      innermembershipsDiv.setAttribute('role','tab');
-      innermembershipsDiv.setAttribute('id',innerName);
+
+      innermembershipsDiv.setAttribute('data-id',innerName);
      innermembershipsDiv.setAttribute('style','text-align:center; font-size:3vw;')
      //innermembershipsDiv.classList.add(innerDiv.id);
         switch(j) {
@@ -250,16 +251,22 @@ while($row = mysqli_fetch_assoc($result)) {
       //console.log(clicked_id);
         var buttonID=clicked_id;
         //buttonID+="b";
-         console.log(buttonID);     
+         //console.log(buttonID);     
                 $("div").each(function () {
-                    if($(this).hasClass("notCountable")){
+               // console.log($(this).attr('id'));
+                    var newUser=$(this).attr('id');
+                    newUser+="b";
+                    if(($(this).hasClass("notCountable"))&&(newUser==buttonID)){
                         //console.log($(this).attr("id"));
+                        //console.log("opas");
                         updatedCustomers.push($(this).attr("id"));
                     }
-                      var newMembership=($(this).attr('id'));
-                      console.log(newMembership);
+                      var newMembership=($(this).attr('data-id'));
+                     // console.log(newMembership);
                     if(($(this).hasClass("list-group-item list-group-item-action active"))&&(newMembership==buttonID)){
-                        updatedCustomers.push(($(this).innerHTML)); 
+                    //console.log($(this).attr("data-id"));
+                     //console.log($(this).text());  
+                        updatedCustomers.push($(this).text()); 
                       //updatedCustomers.push($(this).attr("id"));
                       //console.log("opas");  
                       }
@@ -269,7 +276,7 @@ while($row = mysqli_fetch_assoc($result)) {
                     type: "POST",
                     data: { updatedCustomers: updatedCustomers},
                     success: function(data){
-                    console.log(updatedCustomers);
+                    console.log("hi");
                     }
                 });
             
