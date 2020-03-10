@@ -124,7 +124,7 @@ while($row = mysqli_fetch_assoc($result)) {
     var buttonTag = document.createElement('button')
     buttonTag.setAttribute('type','submit');
     buttonTag.setAttribute('class','btn btn-warning btn-lg float-right');
-     buttonTag.setAttribute('width','100%');
+     //buttonTag.setAttribute('width','100%');
     buttonTag.setAttribute('data-toggle','modal');
     buttonTag.setAttribute('data-target','#successModal');
     buttonTag.innerHTML="Renew";
@@ -234,6 +234,24 @@ while($row = mysqli_fetch_assoc($result)) {
     i++;
    });
    } 
+    var updatedCustomers = [];
+        $(".btn btn-warning btn-lg float-right").on("click", function (e) {     
+                $("div").each(function () {
+                    if ($(this).hasClass("list-group-item list-group-item-action active")) {
+                        updatedCustomers.push(obj.customerID);
+                        updatedCustomers.push($(this).innerHTML);
+                    }      
+                }); 
+                  $.ajax({
+                    url:  "php/updateExpiredMembership.php",
+                    type: "POST",
+                    data: { updatedCustomers: updatedCustomers},
+                    success: function(data){
+                    }
+                });
+            
+          //location.reload();    
+        });
       </script>
 
   </body>
