@@ -81,9 +81,9 @@ while($row = mysqli_fetch_assoc($result)) {
     </div>
 </div>
       <script>
-      function generateTabs(){
-        var php_var = <?php echo json_encode($memberships); ?>;
+       var php_var = <?php echo json_encode($memberships); ?>;
         var obj=php_var;
+      function generateTabs(){
         var i=0;
         obj.forEach(function(obj) {
          //Dynamically Create div for customer whose membership is expired.
@@ -91,10 +91,12 @@ while($row = mysqli_fetch_assoc($result)) {
          
         if(i==0){
             expiredClient.className = 'list-group-item list-group-item-action active';
+            expiredClient.classList.add("notCountable");
         }else{
             expiredClient.className = 'list-group-item list-group-item-action';
+            expiredClient.classList.add("notCountable");
         }
-      expiredClient.id = i;
+      expiredClient.id = obj.customerID;
       expiredClient.setAttribute('data-toggle','list');
       expiredClient.setAttribute('role','tab');
       expiredClient.setAttribute('aria-controls','tab');
@@ -108,7 +110,7 @@ while($row = mysqli_fetch_assoc($result)) {
   
     //Dynamically Create div for details of expired membership.
     var innerDiv = document.createElement('div');
-    var innerName="inner"+i;
+    var innerName="inner"+obj.customerID;
     innerDiv.id=innerName;
     if(i==0)
     innerDiv.className = 'tab-pane fade in active show';
@@ -138,7 +140,7 @@ while($row = mysqli_fetch_assoc($result)) {
     //  <a class="list-group-item list-group-item-action active" id="1" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Unlimited 3 Months</a>
     var membershipsDiv=document.createElement('div');
     membershipsDiv.setAttribute('class','list-group');
-    var clientchoices="memberships-tab-of-client-"+i;
+    var clientchoices="memberships-tab-of-client-"+obj.customerID;
     membershipsDiv.setAttribute('id',clientchoices);
     membershipsDiv.setAttribute('role','tablist');
     for(var j=1;j<11;j++){
@@ -233,13 +235,15 @@ while($row = mysqli_fetch_assoc($result)) {
     document.getElementById('list-tab').appendChild(expiredClient);
     i++;
    });
-   } 
-    var updatedCustomers = [];
-        $(".btn btn-warning btn-lg float-right").on("click", function (e) {     
+    
+   }
+   var updatedCustomers = [];
+        $("button").on("click", function (e) {     
                 $("div").each(function () {
-                    if ($(this).hasClass("list-group-item list-group-item-action active")) {
-                        updatedCustomers.push(obj.customerID);
-                        updatedCustomers.push($(this).innerHTML);
+                    if($(this).hasClass("notCountable")){
+                        console.log($(this).attr("id"));
+                        updatedCustomers.push($(this).attr("id"));
+                        updatedCustomers.push(obj[0].type);
                     }      
                 }); 
                   $.ajax({
@@ -247,11 +251,13 @@ while($row = mysqli_fetch_assoc($result)) {
                     type: "POST",
                     data: { updatedCustomers: updatedCustomers},
                     success: function(data){
+                    console.log(updatedCustomers);
                     }
                 });
             
           //location.reload();    
-        });
+        }); 
+   
       </script>
 
   </body>

@@ -1,16 +1,13 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="jquery-1.10.2.min.js" type="text/javascript"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script> 
     <!-- Latest compiled JavaScript -->
     <script>
     $(function () {
@@ -19,18 +16,10 @@
     </script>
     <title>Ironsky Fitness</title>
     <link rel="shortcut icon" href="images/ironsky2.png" type="image/png">
-    
-    <!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
-
-		<!-- DATE-PICKER -->
-		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
-
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/style.css">
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
-
-<body style="background-color:#1E4072;" onload="XLStoPDF()">
+<body style="background-color:#1E4072;">
 <!-- START OF NAVIGATION BAR -->
 
     <div id="includedContent"></div>
@@ -42,210 +31,128 @@
             <span>FITNESS</span>
         </h4>
     </div>
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-12 mx-auto">
-  <!--                      <input type="file" id="excelfile" />  
-   <input type="button" id="viewfile" value="Export To Table" onclick="ExportToTable()" />  
-      <br />  
-      <br />  
-   <table id="exceltable" class="table table-bordered table-stripped table-responsive">  
-</table>          
+	<div class="container py-5">   
+    <div class="row">
 
-    <embed src="nutr.pdf" width="1000px" height="1000px"/>   -->
-            <div class="wrapper">
-            <form action="" id="wizard">
-        		<!-- SECTION 1 -->
-                <h4></h4>
-                
-                    <div class="inner">
-						<div class="image-holder">
-							<img src="images/form-wizard-1.jpg" alt="">
+        <div class="col-sm-6 col-md-6">  
+        <br>
+        <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Calculation of BMR and Calories</h3>
+                </div>
+        <div class="card-body">
+            <form class="form">
+                    <div class="form-group col-7">
+                        <div id="radio">
+						      <label for="gender">Gender:</label>
+                                <br>
+						      <input type="radio" name="gender" id="male-checked" value="male" checked> Male
+                                <br>
+							 <input type="radio" name="gender" id="female-checked" value="female"> Female
 						</div>
-						<div class="form-content">
-							<div class="form-inner">
-								<div class="form-header">
-									<h3>Book a table</h3>
-									<p>~ Check out our place ~</p>
-								</div>
-								<div class="form-row" style="margin-bottom: 31px;">
-									<label for="">
-										<i class="zmdi zmdi-account-o"></i>
-										People
-									</label>
-									<div class="select">
-										<div class="form-holder">
-											<div class="select-control"></div>
-											<i class="zmdi zmdi-chevron-down"></i>
-										</div>
-										<ul class="dropdown">
-											<li rel="1">1</li>
-											<li rel="2">2</li>
-											<li rel="3">3</li>
-											<li rel="4">4</li>
-											<li rel="5">5</li>
-										</ul>
-									</div>
-								</div>
-								<div class="form-row" style="margin-bottom: 31px;">
-									<label for="">
-										<i class="zmdi zmdi-calendar-check"></i>
-										Date
-									</label>
-									<input type='text' class='datepicker-here form-control' data-language='en' id="dp" data-date-format="dd M yyyy"/>
-								</div>
-								<div class="form-row">
-									<label for="" style="margin-bottom: 9px;">
-										<i class="zmdi zmdi-alarm"></i>
-										Time
-									</label>
-									<div class="form-holder select-holder">
-										<select name="" id="" class="form-control">
-											<option value="9am"><span>9</span> am</option>
-											<option value="10am"><span>10</span> am</option>
-											<option value="11am"><span>11</span>am</option>
-											<option value="12am"><span>12</span>am</option>
-										</select>
-										<i class="zmdi zmdi-caret-down"></i>
-									</div>
-									<div class="form-holder select-holder">
-										<select name="" id="" class="form-control">
-											<option value="7pm"><span>7</span> pm</option>
-											<option value="8pm"><span>8</span> pm</option>
-											<option value="9pm"><span>9</span> pm</option>
-											<option value="10pm"><span>10</span> pm</option>
-										</select>
-										<i class="zmdi zmdi-caret-down"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                
-				
+                </div>
+                <div class="form-group col-7 col-lg-4">
+                    <label for="weighT">Weight</label>
+                    <input type="text" placeholder="ex. 80 (in kg)" class="form-control" id="weight" name="weight" required="">
+                </div>
+                <div class="form-group  col-7 col-lg-4">
+                    <label for="height">Height</label>
+                    <input type="text" placeholder="ex. 180 (in cm)" class="form-control" id="height" name="height" required="">
+                </div>              
+                <div class="form-group  col-7 col-lg-4">
+                    <label for="age">Age</label>
+                    <input type="text" placeholder="ex. 25 (in years)" class="form-control" id="age" name="age" required="">
+                </div>       
+                    <div class="form-group col-10">
+                      <label for="inputState">Lifestyle</label>
+                      <select id="inputState" class="form-control">
+                        <option value="1.2" selected>I am sedentary (little or no exercise)</option>
+                        <option value="1.375">I am lightly active (light exercise or sports 1-3 days per week)</option>
+                      	<option value="1.55">I am moderately active (moderate exercise or sports 3-5 days per week) </option>
+                        <option value="1.725">I am very active (hard exercise or sports 6-7 days per week) </option>
+                        <option value="1.9">I am super active (very hard exercise or sports and a physical job) </option>
+                      </select>
+                    </div>
+                <div class="form-group">
+                <div class="row">
+                <div class="col-7 mx-auto">
+                    <h6><span hidden id="error-span" style="font-size:60%; color:red;">&#42;Please enter realistic information</span></h6>
+                </div>
+                <div class="col-5">
+                   <button type="button" onclick="calculate()"class="btn btn-success btn-lg">Calculate</button>
+                </div>
+                </div>
+                </div>
+                           
             </form>
-		</div>
-            </div>
         </div>
     </div>
-  </body>
-  <script>
-  function ExportToTable() {  
-     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
-     /*Checks whether the file is a valid excel file*/  
-     if (regex.test($("#excelfile").val().toLowerCase())) {  
-         var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/  
-         if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {  
-             xlsxflag = true;  
-         }  
-         /*Checks whether the browser supports HTML5*/  
-         if (typeof (FileReader) != "undefined") {  
-             var reader = new FileReader();  
-             reader.onload = function (e) {  
-                 var data = e.target.result;  
-                 /*Converts the excel data in to object*/  
-                 if (xlsxflag) {  
-                     var workbook = XLSX.read(data, { type: 'binary' });  
-                 }  
-                 else {  
-                     var workbook = XLS.read(data, { type: 'binary' });  
-                 }  
-                 /*Gets all the sheetnames of excel in to a variable*/  
-                 var sheet_name_list = workbook.SheetNames;  
-  
-                 var cnt = 0; /*This is used for restricting the script to consider only first sheet of excel*/  
-                 sheet_name_list.forEach(function (y) { /*Iterate through all sheets*/  
-                     /*Convert the cell value to Json*/  
-                     if (xlsxflag) {  
-                         var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);  
-                     }  
-                     else {  
-                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);  
-                     }  
-                     if (exceljson.length > 0 && cnt == 0) {  
-                         BindTable(exceljson, '#exceltable');  
-                         cnt++;  
-                     }  
-                 });  
-                 $('#exceltable').show();  
-             }  
-             if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/  
-                 reader.readAsArrayBuffer($("#excelfile")[0].files[0]);  
-             }  
-             else {  
-                 reader.readAsBinaryString($("#excelfile")[0].files[0]);  
-             }  
-         }  
-         else {  
-             alert("Sorry! Your browser does not support HTML5!");  
-         }  
-     }  
-     else {  
-         alert("Please upload a valid Excel file!");  
-     }  
- }  
- function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
-     var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
-     for (var i = 0; i < jsondata.length; i++) {  
-         var row$ = $('<tr/>');  
-         for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
-             var cellValue = jsondata[i][columns[colIndex]];  
-             if (cellValue == null)
-                 cellValue = "";  
-                 
-             row$.append($('<td/>').html(cellValue));  
-         }  
-         $(tableid).append(row$);  
-     }  
- }  
- function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
-     var columnSet = [];  
-     var headerTr$ = $('<tr/>');  
-     for (var i = 0; i < jsondata.length; i++) {  
-         var rowHash = jsondata[i];  
-         for (var key in rowHash) {  
-             if (rowHash.hasOwnProperty(key)) {  
-                 if ($.inArray(key, columnSet) == -1) {/*Adding each unique column names to a variable array*/  
-                     columnSet.push(key);  
-                     headerTr$.append($('<th/>').html(key));  
-                 }  
-             }  
-         }  
-     }  
-     $(tableid).append(headerTr$);  
-     return columnSet;  
- } 
- 
- function XLStoPDF(){
-    var fso = new ActiveXObject("Scripting.FileSystemObject");
-    var docPath = "nutr.xlsx";
-    docPath = fso.GetAbsolutePathName(docPath);
-    
-    var pdfPath = docPath.replace(/\.xls[^.]*$/, ".pdf");
-    var objExcel = null;
-    
-    try
-    {
-        //WScript.Echo("Saving '" + docPath + "' as '" + pdfPath + "'...");
-    
-        objExcel = new ActiveXObject("Excel.Application");
-        objExcel.Visible = false;
-    
-        var objWorkbook = objExcel.Workbooks.Open(docPath);
+		</div>
+        <div class="col-sm-4 col-md-4">
+        <br>  
+        <div class="card" id="bmrcard" hidden>
+                
+        <div class="card-body">
+            <form class="form" role="form">
+                    <div class="form-group ">
+                       <h3> <label for="bmr">Your BMR is: </label> </h3>
+                        <h1><span style="width:100%; padding-top:5%; font-size:150%;" class="badge badge-info" id="bmr"></span></h1>
+                        <br>
+                        <h3><label for="calories">Maintenance calories per day:</label></h3>
+                        <h1><span style="width:100%; padding-top:5%; font-size:150%;" class="badge badge-success" id="calories"></span></h1>
 
-        var wdFormatPdf = 57;
-        objWorkbook.SaveAs(pdfPath, wdFormatPdf);
-        objWorkbook.Close();
+                </div>
+                           
+            </form>
+        </div>        
+        </div>
+    </div>
+		</div>
+        </div>
     
-       // WScript.Echo("Done.");
-    }
-    finally
-    {
-        if (objExcel != null)
-        {
-            objExcel.Quit();
+    <script>
+        function calculate(){
+        document.getElementById('error-span').hidden=true;
+            if((document.getElementById('male-checked').checked)&&((document.getElementById('height').value)!="")&&((document.getElementById('age').value)!="")&&((document.getElementById('weight').value)!="")) { 
+                //console.log("iuhgoiugoiugugoiug");
+                
+                var height = document.getElementById('height').value;
+                var weight = document.getElementById('weight').value;
+                var age = document.getElementById('age').value;
+                if(((height<50)||(height>300))||((weight<40)||(weight>200))||((age<5)||(age>100))){
+                   document.getElementById('error-span').hidden=false;
+                   return;
+                }
+                var bmr = (10*weight) + (6.25*height) - (5*age) + 5;
+                var lifestyle = document.getElementById('inputState').value;
+                var calories = Math.round(bmr * lifestyle); 
+
+                document.getElementById('bmrcard').hidden= false;
+                document.getElementById('bmr').innerHTML= bmr;
+                document.getElementById('calories').innerHTML= calories;
+                
+            }else if((document.getElementById('female-checked').checked)&&((document.getElementById('height').value)!="")&&((document.getElementById('age').value)!="")&&((document.getElementById('weight').value)!="")){
+                 
+                var height = document.getElementById('height').value;
+                var weight = document.getElementById('weight').value;
+                var age = document.getElementById('age').value;
+                if(((height<50)||(height>300))||((weight<40)||(weight>200))||((age<5)||(age>100))){
+                   document.getElementById('error-span').hidden=false;
+                   return;
+                }
+                var bmr = (10*weight) + (6.25*height) - (5*age) - 161;
+                
+                var lifestyle = document.getElementById('inputState').value;
+                var calories = Math.round(bmr * lifestyle); 
+                
+                document.getElementById('bmrcard').hidden= false;
+                document.getElementById('bmr').innerHTML= bmr;
+                document.getElementById('calories').innerHTML= calories;
+            }else{
+                 document.getElementById('error-span').hidden=false;
+            }
         }
-    }
- }
- </script>
+    
+    </script>
+</body>
 </html>

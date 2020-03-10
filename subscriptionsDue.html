@@ -1,4 +1,37 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+﻿<?php sleep(1); ?>
+
+<?php
+$servername="localhost";
+$username = "ironsky";
+$password = "pfVGdTzSOoLh85yp";
+$dbname = "ironsky";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$memberships=array();
+
+$query = "SELECT * FROM Memberships";
+    $result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
+    $i=0;
+while($row = mysqli_fetch_assoc($result)) {
+       
+        $membershipRow = array(
+            "customerID" => $row["CustomerID"],
+            "exp_date" => $row["ExpirationDate"],
+            "type" => $row["Type"]
+            
+        );
+         $classes[$i]=$membershipRow; 
+         $i=$i+1;
+        }  
+         
+ 
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta charset="utf-8">
@@ -54,14 +87,7 @@
     
     <div class="list-group" id="list-tab" role="tablist"> 
       <div class="list-group-item list-group-item-action active" id="list-n1-list" data-toggle="list" href="#list-n1" role="tab" aria-controls="n1" style="text-align:center; font-size:2vw;"> username1</div>
-      <a class="list-group-item list-group-item-action" id="list-n2-list" data-toggle="list" href="#list-n2" role="tab" aria-controls="n2" style="text-align:center; font-size:2vw;">username2</a>
-      <a class="list-group-item list-group-item-action" id="list-n3-list" data-toggle="list" href="#list-n3" role="tab" aria-controls="n3" style="text-align:center; font-size:2vw;">username3</a>
-      <a class="list-group-item list-group-item-action" id="list-n4-list" data-toggle="list" href="#list-n4" role="tab" aria-controls="n4" style="text-align:center; font-size:2vw;">username4</a>
-      <a class="list-group-item list-group-item-action" id="list-n5-list" data-toggle="list" href="#list-n5" role="tab" aria-controls="n5" style="text-align:center; font-size:2vw;">username7</a>
-      <a class="list-group-item list-group-item-action" id="list-n6-list" data-toggle="list" href="#list-n6" role="tab" aria-controls="n6" style="text-align:center; font-size:2vw;">username12</a>
-      <a class="list-group-item list-group-item-action" id="list-n7-list" data-toggle="list" href="#list-n7" role="tab" aria-controls="n7" style="text-align:center; font-size:2vw;">username87</a>
-      <a class="list-group-item list-group-item-action" id="list-n8-list" data-toggle="list" href="#list-n8" role="tab" aria-controls="n8" style="text-align:center; font-size:2vw;">username99</a>
-       <a class="list-group-item list-group-item-action" id="list-n9-list" data-toggle="list" href="#list-n9" role="tab" aria-controls="n9" style="text-align:center; font-size:2vw;">username100</a>
+      <a class="list-group-item list-group-item-action" id="list-n5-list" data-toggle="list" href="#list-n5" role="tab" aria-controls="n5" style="text-align:center; font-size:2vw;">username7</a>      
     </div>
   </div>
   <div class="col-6 mx-auto">
@@ -74,27 +100,7 @@
       <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
       </h5>
       </div>
-      <div class="tab-pane fade" id="list-n2" role="tabpanel" aria-labelledby="list-n2-list">
-      <h5 class="text text-white">
-    <strong> EXPIRING ON:</strong> <br>
-      <span>17/12/2012</span> <br><br>
-      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>   
-      </h5>
-      </div>
-      <div class="tab-pane fade" id="list-n3" role="tabpanel" aria-labelledby="list-n3-list">
-       <h5 class="text text-white">
-    <strong> EXPIRING ON:</strong> <br>
-      <span>10/12/2012</span> <br><br>
-      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
-      </h5>
-      </div>
-      <div class="tab-pane fade" id="list-n4" role="tabpanel" aria-labelledby="list-n4-list">
-      <h5 class="text text-white">
-     <strong> EXPIRING ON:</strong> <br>
-      <span>09/12/2012</span> <br><br>
-      <button type="submit" class="btn btn-warning btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
-      </h5>
-    </div> 
+
      <!-- MEMBERSHIPS DUE END -->
      
        <!--EXPIRED MEMBERSHIPS START-->
@@ -105,45 +111,41 @@
       <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
       </h5>
       </div>
-      <div class="tab-pane fade" id="list-n6" role="tabpanel" aria-labelledby="list-n6-list">
-      <h5 class="text text-white">
-    <strong> EXPIRED IN:</strong> <br>
-      <span>12/11/2012</span> <br><br>
-      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
-      </h5>
-      </div>
-      <div class="tab-pane fade" id="list-n7" role="tabpanel" aria-labelledby="list-n7-list">
-       <h5 class="text text-white">
-    <strong> EXPIRED IN:</strong> <br>
-      <span>12/11/2012</span> <br><br>
-      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
-      </h5>
-      </div>
-      <div class="tab-pane fade" id="list-n8" role="tabpanel" aria-labelledby="list-n8-list">
-      <h5 class="text text-white">
-     <strong> EXPIRED IN:</strong> <br>
-      <span>12/11/2012</span> <br><br>
-      <button type="submit" class="btn btn-danger btn-lg float-left" data-toggle="modal" data-target="#exampleModal">Notify</button>
-      </h5>
-    </div> 
+
   </div>
 </div>
   </div>
    </div>
       <script>
+        var php_var = <?php echo json_encode($classes); ?>;
+        var obj=php_var;
         var i=0;
-       var expiredClient = document.createElement('div');
-       div class="tab-pane fade show active" id="list-n1" role="tabpanel" aria-labelledby="list-n1-list"
-    expiredClient.id = i++;
-    expiredClient.className = 'tab-pane fade show active';
-    document.getElementsByTagName('body')[0].appendChild(expiredClient);
-
-    // Now create and append to iDiv
-    var innerDiv = document.createElement('div');
-    innerDiv.className = 'block-2';
+        obj.forEach(function(obj) {
+        var expiredClient = document.createElement('div');
+    
+        if(i==0){
+            expiredClient.className = 'list-group-item list-group-item-action active';
+        }else{
+            expiredClient.className = 'list-group-item list-group-item-action';
+        }
+      expiredClient.id = i++;
+      expiredClient.setAttribute('data-toggle','list');
+      expiredClient.setAttribute('role','tab');
+      expiredClient.setAttribute('aria-controls','tab');
+      expiredClient.setAttribute('style','text-align:center; font-size:2vw;');
+      expiredClient.innerHTML=obj.exp_date;
+      var hreference="#";
+      hreference+=i;
+      expiredClient.setAttribute('href',hreference);
+      document.getElementID('list-tab').appendChild(expiredClient);
+  
+      // Now create and append to iDiv
+   // var innerDiv = document.createElement('div');
+   // innerDiv.className = 'block-2';
 
 // The variable iDiv is still good... Just append to it.
-iDiv.appendChild(innerDiv);
+//iDiv.appendChild(innerDiv);
+   }); 
       </script>
 
   </body>
