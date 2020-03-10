@@ -143,42 +143,85 @@ while($row = mysqli_fetch_assoc($result)) {
     membershipsDiv.setAttribute('role','tablist');
     for(var j=1;j<11;j++){
     var innermembershipsDiv=document.createElement('div');
-     innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action');
      innermembershipsDiv.setAttribute('data-toggle','list');
      innermembershipsDiv.setAttribute('role','tab');
      innermembershipsDiv.setAttribute('style','text-align:center; font-size:3vw;')
         switch(j) {
         case 1:
-          innermembershipsDiv.innerHTML="Unlimited 3 Months";
+        if(obj.type==="Unlimited 3 Months")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
+        innermembershipsDiv.innerHTML="Unlimited 3 Months";     
         break;
         case 2:
+        if(obj.type==="3 Sessions / Week 3 Months")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="3 Sessions / Week 3 Months";
         break;
         case 3:
+        if(obj.type==="Open Gym 3 Months")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="Open Gym 3 Months";
         break;
         case 4:
+        if(obj.type==="Grow Strong 3 Months")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
        innermembershipsDiv.innerHTML="Grow Strong 3 Months";
+        break;
         case 5:
+        if(obj.type==="We Move 3 Months")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="We Move 3 Months";
         break;
         case 6:
+        if(obj.type==="Unlimited")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="Unlimited";
+        break;
         case 7:
+        if(obj.type==="3 Sessions / Week")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
        innermembershipsDiv.innerHTML="3 Sessions / Week";
         break;
         case 8:
+        if(obj.type==="Open Gym")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="Open Gym";
+        break;
         case 9:
+        if(obj.type==="Grow Strong")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="Grow Strong";
         break;
         case 10:
+        if(obj.type==="We Move")
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action active');
+         else
+            innermembershipsDiv.setAttribute('class','list-group-item list-group-item-action'); 
         innermembershipsDiv.innerHTML="We Move";
         break;
       default:
         // Do nothing
         break;
     }
+    console.log(j);
      membershipsDiv.appendChild(innermembershipsDiv);
   }
     h5Tag.appendChild(membershipsDiv);
