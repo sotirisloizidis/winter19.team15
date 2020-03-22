@@ -233,6 +233,8 @@ while($row = mysqli_fetch_assoc($result)) {
         // Do nothing
         break;
     }
+		  //innermembershipsDiv.classList.add(innerName);
+
    // console.log(j);
      membershipsDiv.appendChild(innermembershipsDiv);
   }
@@ -253,35 +255,42 @@ while($row = mysqli_fetch_assoc($result)) {
         var buttonID=clicked_id;
         //buttonID+="b";
          //console.log(buttonID);     
+                //$("div").each(function () {
+				var tab;
                 $("div").each(function () {
-               // console.log($(this).attr('id'));
-                    var newUser=$(this).attr('id');
-                    newUser+="b";
-                    if(($(this).hasClass("notCountable"))&&(newUser==buttonID)){
-                        //console.log($(this).attr("id"));
-                        //console.log("opas");
-                        updatedCustomers.push($(this).attr("id"));
+                    var selectFromTab=$(this).attr('id');
+					selectFromTab+="b";
+                    if(selectFromTab==buttonID){
+					if($(this).hasClass("notCountable")){
+						console.log($(this).attr("id"));
+						var id=$(this).attr("id");
+						//console.log(id);
+					   tab=selectFromTab;
+						updatedCustomers.push($(this).attr("id"));
+
                     }
-                      var newMembership=($(this).attr('data-id'));
-                     // console.log(newMembership);
-                    if(($(this).getAttribute("aria-selected")==true)&&(newMembership==buttonID)){
-                    //console.log($(this).attr("data-id"));
-                     //console.log($(this).text());  
-                        updatedCustomers.push($(this).text()); 
-                      //updatedCustomers.push($(this).attr("id"));
-                      console.log("opas");  
-                      }
-                }); 
+					}
+                });
+				$("div").each(function () {
+						if($(this).attr('role')=='tab')
+							if($(this).attr('data-id')==tab)
+								if($(this).hasClass('list-group-item list-group-item-action active')){
+									console.log($(this).text());
+									var newMembership=$(this).text();
+									console.log(newMembership);
+									updatedCustomers.push(newMembership);
+								}
+				});
                   $.ajax({
                     url:  "php/updateExpiredMembership.php",
                     type: "POST",
-                    data: { updatedCustomers: updatedCustomers},
+                    data: { customer_id:updatedCustomers[0],customer_membership:updatedCustomers[1]},
                     success: function(data){
-                    console.log("hi");
+                    console.log(updatedCustomers);
                     }
                 });
             
-          //location.reload();    
+          location.reload();    
        }
    
       </script>
