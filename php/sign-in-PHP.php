@@ -48,6 +48,12 @@ if (!$result) {
   
   if (password_verify($password,$row['Password'])){ 
        header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
+       $cuid="SELECT Customer_ID FROM Customer WHERE Email='$email'";
+       $res=mysqli_query($conn,$cuid);
+       $row = mysqli_fetch_assoc($res);
+       $id=$row['Customer_ID'];
+       $log="INSERT INTO Login_Log(Customer_ID) VALUES ('$id')";
+       mysqli_query($conn,$log);
        return true;
   }else{
         $query2 = "SELECT * FROM Trainer WHERE Email='$email'";

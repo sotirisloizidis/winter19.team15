@@ -1,15 +1,42 @@
-const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const dayNames = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 function fill() {
     var date = new Date();
     var day = date.getDay();
 
-    for (let i = day - 1; i < day + 6; i++)
+    
+    for (let i = day; i < day + 6; i++)
         $("#selectDay").append("<option>" + dayNames[i % 7] + "</option>");
 
 }
 
 function passItem(el) {
-    document.getElementById('show_button').style.display = 'none';
+    var tab=document.getElementById('Classes');
+    tab.innerHTML="";
+    var head=tab.createTHead();
+    var row=head.insertRow(0);
+    row.className="table100-head";
+    row.style="font-weight:bold;"
+    var col=row.insertCell(0);
+    col.style="width:auto;";
+    col.innerHTML="ClassID";
+    var col=row.insertCell(1);
+    col.style="width:auto;";
+    col.innerHTML="Class"; 
+    var col=row.insertCell(2);
+    col.style="width:auto;";
+    col.innerHTML="Description";
+    var col=row.insertCell(3);
+    col.style="width:auto;";
+    col.innerHTML="Time";
+    var col=row.insertCell(4);
+    col.style="width:auto;";
+    col.innerHTML="Number Of Places";
+    var col=row.insertCell(5);
+    col.style="width:auto;";
+    col.innerHTML="Available Places";
+    var col=row.insertCell(6);
+    col.style="width:auto;";
+    col.innerHTML="Enrollment";     
     var e = document.getElementById(el).value;
     var weekday = new Array(7);
     weekday[0] = "Sunday";
@@ -87,7 +114,6 @@ function passItem(el) {
                           console.log(ar[1]);
                           for(var j=0;j<ar.length;j++){
                             if(ar[j]==cl){
-                              console.log("erkume");
                               check=false;
                             }
                           }
