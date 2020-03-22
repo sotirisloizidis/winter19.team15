@@ -47,13 +47,36 @@ if (!$result) {
   $row = mysqli_fetch_assoc($result);  
   
   if (password_verify($password,$row['Password'])){ 
-       header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
        $cuid="SELECT Customer_ID FROM Customer WHERE Email='$email'";
        $res=mysqli_query($conn,$cuid);
        $row = mysqli_fetch_assoc($res);
        $id=$row['Customer_ID'];
        $log="INSERT INTO Login_Log(Customer_ID) VALUES ('$id')";
        mysqli_query($conn,$log);
+       $expd="SELECT ExpirationDate FROM Memberships WHERE CustomerID='$id'";
+       $res=mysqli_query($conn,$expd);
+       $row=mysqli_fetch_assoc($res);
+       $date=$row['ExpirationDate'];
+       $today = new DateTime('now');
+       $expire=date_create($date);
+       $interval = date_diff($expire, $today);
+       if($interval->days<5){
+        echo "<script> 
+       swal({
+  title: 'Membership',
+  text: 'Your membership expires at {$date}',
+  type: 'error',
+
+  showConfirmButton: true
+}, function(){
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html';
+}); 
+     $('.sweet-overlay').css('background-color','#1E4072');
+     
+      </script>";
+      }else{
+        header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
+      }
        return true;
   }else{
         $query2 = "SELECT * FROM Trainer WHERE Email='$email'";
