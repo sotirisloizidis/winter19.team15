@@ -1,3 +1,4 @@
+
 <?php sleep(1); ?>
 
 <?php
@@ -263,12 +264,12 @@ while($row = mysqli_fetch_assoc($result)) {
                     }
                       var newMembership=($(this).attr('data-id'));
                      // console.log(newMembership);
-                    if(($(this).hasClass("list-group-item list-group-item-action active"))&&(newMembership==buttonID)){
+                    if(($(this).getAttribute("aria-selected")==true)&&(newMembership==buttonID)){
                     //console.log($(this).attr("data-id"));
                      //console.log($(this).text());  
                         updatedCustomers.push($(this).text()); 
                       //updatedCustomers.push($(this).attr("id"));
-                      //console.log("opas");  
+                      console.log("opas");  
                       }
                 }); 
                   $.ajax({

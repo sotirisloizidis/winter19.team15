@@ -135,7 +135,15 @@ function passItem(el) {
                                     num++;
                                     pl.innerHTML = num;
                                     unbtn.parentNode.removeChild(unbtn);
-                                    location.reload();
+                                    swal({
+                                      title: 'Enrollment',
+                                      text: 'You have been un-enrolled',
+                                      type: 'success',
+                                    
+                                      showConfirmButton: true
+                                    }, function(){
+                                          window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/enroll.html';
+                                    }); 
                                 }
                             });
                           });
@@ -158,8 +166,17 @@ function passItem(el) {
                                             var num = document.getElementById('Classes').rows[i + 1].cells[5].innerHTML;
                                             pl.innerHTML = num - 1;
                                             btn.parentNode.removeChild(btn);
-                                            location.reload();
-
+                                            swal({
+                                              title: 'Enrollment',
+                                              text: 'Successfully enrolled',
+                                              type: 'success',
+                                            
+                                              showConfirmButton: true
+                                            }, function(){
+                                                  window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/enroll.html';
+                                            }); 
+                                                 
+                                              
                                         }
                                     }
                                 });
