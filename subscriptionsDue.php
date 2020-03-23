@@ -76,10 +76,13 @@ while($row = mysqli_fetch_assoc($result)) {
     <br><br>
 <div class="container">
     <div style="color:white; font-size:4vw;"><strong>Expired Memberships</strong></div>
-    <div class="row"> 
-        <div class="col-6 mx-auto" id="clients"><div class="list-group" id="list-tab" role="tablist"> </div></div>
-        <div class="col-6 mx-auto" id="details"><div class="tab-content" id="nav-tabContent"></div></div>
-    </div>
+     
+        <div class="col-8" id="clients"><div class="list-group" id="list-tab" role="tablist"> </div>
+		
+		<div id="details"><div class="tab-content" id="nav-tabContent"></div></div>
+		</div>
+        
+   
 </div>
       <script>
        var php_var = <?php echo json_encode($memberships); ?>;
@@ -239,12 +242,13 @@ while($row = mysqli_fetch_assoc($result)) {
      membershipsDiv.appendChild(innermembershipsDiv);
   }
     h5Tag.appendChild(membershipsDiv);
-    h5Tag.appendChild(buttonTag);  
+    innerDiv.appendChild(buttonTag);  
     innerDiv.appendChild(h5Tag);
      
     //Append customer tab to navigationbar and corresponding detatails to details div.
     document.getElementById('nav-tabContent').appendChild(innerDiv);
     document.getElementById('list-tab').appendChild(expiredClient);
+	
     i++;
    });
     

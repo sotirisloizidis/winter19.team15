@@ -75,6 +75,17 @@ if (!$result) {
      
       </script>";
       }else{
+	$cuid="SELECT Customer_ID FROM Customer WHERE Email='$email'";
+       	$res=mysqli_query($conn,$cuid);
+       	$row = mysqli_fetch_assoc($res);
+       	$id=$row['Customer_ID'];
+
+	$query="SELECT * FROM Login_Log WHERE Customer_ID=$id";
+	$results=mysqli_query($conn,$query);
+	if(mysqli_num_rows($results)==0)
+	{
+		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/privacyPolicy.html");
+	}
         header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
       }
        return true;
