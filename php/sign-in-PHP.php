@@ -62,7 +62,7 @@ if (!$result) {
        $interval = date_diff($expire, $today);
        if($interval->days<5){
         echo "<script> 
-       swal({
+       swal({;
   title: 'Membership',
   text: 'Your membership expires at {$date}',
   type: 'error',
@@ -82,12 +82,15 @@ if (!$result) {
 
 	$query="SELECT * FROM Login_Log WHERE Customer_ID=$id";
 	$results=mysqli_query($conn,$query);
-	if(mysqli_num_rows($results)==0)
+	if(mysqli_num_rows($results)==1)
 	{
 		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/privacyPolicy.html");
 	}
-        header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
-      }
+	else
+	{
+        		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html"); 
+	}	
+}
        return true;
   }else{
         $query2 = "SELECT * FROM Trainer WHERE Email='$email'";
