@@ -1,12 +1,12 @@
 <head>
 </head>
-<body>          
+<body>
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
 </body>
 
 <?php
@@ -18,7 +18,7 @@ $password=$_POST["Password"];
 
 
 if(($email=="") || ($password=="") ){
-      echo "<script> 
+      echo "<script>
        swal({
   title: 'Email or Password field is empty',
   text: 'The Email or Password field cannot be empty.',
@@ -27,12 +27,12 @@ if(($email=="") || ($password=="") ){
   showConfirmButton: true
 }, function(){
       window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/sign-in.php';
-}); 
+});
      $('.sweet-overlay').css('background-color','#1E4072');
-     
+
       </script>";
     //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php");
-    return false;   
+    return false;
 }
 session_start();
 $_SESSION["email"] = $email;
@@ -43,10 +43,10 @@ if (!$result) {
     echo "wrong input";
     printf("Error: %s\n", mysqli_error($conn));
     exit();
-}  
-  $row = mysqli_fetch_assoc($result);  
-  
-  if (password_verify($password,$row['Password'])){ 
+}
+  $row = mysqli_fetch_assoc($result);
+
+  if (password_verify($password,$row['Password'])){
        $cuid="SELECT Customer_ID FROM Customer WHERE Email='$email'";
        $res=mysqli_query($conn,$cuid);
        $row = mysqli_fetch_assoc($res);
@@ -61,8 +61,8 @@ if (!$result) {
        $expire=date_create($date);
        $interval = date_diff($expire, $today);
        if($interval->days<5){
-        echo "<script> 
-       swal({;
+        echo "<script>
+       swal({
   title: 'Membership',
   text: 'Your membership expires at {$date}',
   type: 'error',
@@ -70,9 +70,9 @@ if (!$result) {
   showConfirmButton: true
 }, function(){
       window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html';
-}); 
+});
      $('.sweet-overlay').css('background-color','#1E4072');
-     
+
       </script>";
       }else{
 	$cuid="SELECT Customer_ID FROM Customer WHERE Email='$email'";
@@ -88,24 +88,24 @@ if (!$result) {
 	}
 	else
 	{
-        		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html"); 
-	}	
+        		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
+	}
 }
        return true;
   }else{
         $query2 = "SELECT * FROM Trainer WHERE Email='$email'";
         $result2 = mysqli_query($conn, $query2)  or die("Could not connect database " .mysqli_error($conn));
-          
+
         if (!$result2) {
             printf("Error: %s\n", mysqli_error($conn));
             exit();
-        }  
+        }
         $row2 = mysqli_fetch_assoc($result2);
-        if (password_verify($password, $row2['Password'])){ 
+        if (password_verify($password, $row2['Password'])){
              header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/mainTrainer.html");
              return true;
         }else{
-            echo "<script> 
+            echo "<script>
        swal({
   title: 'Password is Invalid',
   text: 'The Email or Password is invalid.',
@@ -114,17 +114,16 @@ if (!$result) {
   showConfirmButton: true
 }, function(){
       window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/sign-in.php';
-}); 
+});
      $('.sweet-overlay').css('background-color','#1E4072');
-     
+
       </script>";
             return false;
         }
     }
-	
-           
-$conn->close();   
+
+
+$conn->close();
 
 
 ?>
-                                            
