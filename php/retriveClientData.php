@@ -95,6 +95,44 @@ else
 		}
 	}	
 	mysqli_close($conn);
+
+
+	
+
+	$to = $email;
+        $subject = 'Your Data';
+
+        $message = "All the data we collected about you";
+        $attachment = chunk_split(base64_encode(file_get_contents("testData.txt")));
+        $filename = "testData.txt";
+
+        $boundary =md5(date('r', time())); 
+
+        $headers = "From: ironsky@cs.ucy.ac.cy";
+        $headers .= "\r\nMIME-Version: 1.0\r\nContent-Type: multipart/mixed; boundary=\"_1_$boundary\"";
+
+        $message="This is a multi-part message in MIME format.
+
+--_1_$boundary
+Content-Type: multipart/alternative; boundary=\"_2_$boundary\"
+
+--_2_$boundary
+Content-Type: text/plain; charset=\"iso-8859-1\"
+Content-Transfer-Encoding: 7bit
+
+$message
+
+--_2_$boundary--
+--_1_$boundary
+Content-Type: application/octet-stream; name=\"$filename\" 
+Content-Transfer-Encoding: base64 
+Content-Disposition: attachment 
+
+$attachment
+--_1_$boundary--";
+
+        mail($to, $subject, $message, $headers);
+
 	echo "<script>setTimeout(\"location.href = ' http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/clientData.html';\",500);</script>";
 }
 
