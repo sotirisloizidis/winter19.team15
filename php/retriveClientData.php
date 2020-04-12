@@ -82,36 +82,20 @@ else
 				fwrite($myfile, "\n". $row[Id] . "\t " . $row[Customer_ID] ."\t\t " . $row[Date]); //TOFIX: missing the first login
     			}		
 
-			
-			/*$d = print_r($data, true);
-			fwrite($myfile, $d);*/
-			//echo "<script> alert($id); </script>";
-			
-			fclose($myfile);
-		}		
-		else
-		{
-			echo "<script> alert('PASSWORD NOT VERYFIED'); </script>";		
-		}
-	}	
-	mysqli_close($conn);
+			//send data to user
+			$to = $email;
+        		$subject = 'Your Data';
 
+        		$message = "All the data we collected about you";
+        		$attachment = chunk_split(base64_encode(file_get_contents("testData.txt")));
+        		$filename = "testData.txt";
 
-	
+        		$boundary =md5(date('r', time())); 
 
-	$to = $email;
-        $subject = 'Your Data';
+       		 	$headers = "From: ironsky@cs.ucy.ac.cy";
+        		$headers .= "\r\nMIME-Version: 1.0\r\nContent-Type: multipart/mixed; boundary=\"_1_$boundary\"";
 
-        $message = "All the data we collected about you";
-        $attachment = chunk_split(base64_encode(file_get_contents("testData.txt")));
-        $filename = "testData.txt";
-
-        $boundary =md5(date('r', time())); 
-
-        $headers = "From: ironsky@cs.ucy.ac.cy";
-        $headers .= "\r\nMIME-Version: 1.0\r\nContent-Type: multipart/mixed; boundary=\"_1_$boundary\"";
-
-        $message="This is a multi-part message in MIME format.
+       	 		$message="This is a multi-part message in MIME format.
 
 --_1_$boundary
 Content-Type: multipart/alternative; boundary=\"_2_$boundary\"
@@ -131,7 +115,20 @@ Content-Disposition: attachment
 $attachment
 --_1_$boundary--";
 
-        mail($to, $subject, $message, $headers);
+       		 	mail($to, $subject, $message, $headers);			
+			fclose($myfile);
+		}		
+		else
+		{
+			echo "<script> alert('FAILED TO VERIFY USER'); </script>";		
+		}
+	}	
+	mysqli_close($conn);
+
+
+	
+
+	
 
 	echo "<script>setTimeout(\"location.href = ' http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/clientData.html';\",500);</script>";
 }

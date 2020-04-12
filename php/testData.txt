@@ -1,27 +1,21 @@
 Client Details: 
-Name => MIke
+Name => Michalis
 Surname => Kaili
-Customer_ID => 987091
-Address => AAAAA
-Telephone => 111111
+Customer_ID => 987096
+Address => qqqqqqqqqqqqqqq
+Telephone => 2147483647
 Email => mkaili02@cs.ucy.ac.cy
-Password => $2y$10$ybBe5.bdrnzTlnhGLQ6H3.mgMtvwtkAgQdMYIgCFXAANr/FlrH.b6
+Password => $2y$10$CuiyBEJ0aTFUVQU3Wp1gZulYDuB3Vns9Z/cUZTGQwL.x806T/aul6
 
 Memberships: 
-ID => 127
-CustomerID => 987091
-ExpirationDate => 2020-04-03
-Type => 3 Sessions / Week
+ID => 130
+CustomerID => 987096
+ExpirationDate => 2020-05-12
+Type => Unlimited
 
 Enrolment: 
 Id		 Username		 ClassID		 Date		 
-65		 mkaili02@cs.ucy.ac.cy	 1066			 2020-04-11
-66		 mkaili02@cs.ucy.ac.cy	 1067			 2020-04-13
-67		 mkaili02@cs.ucy.ac.cy	 1083			 2020-04-14
-68		 mkaili02@cs.ucy.ac.cy	 1086			 2020-04-14
 
 Log-in  Details: 
 Id	 Customer_ID	 Date	 
-69	 987091		 2020-04-10 18:15:11
-70	 987091		 2020-04-10 18:15:26
-71	 987091		 2020-04-11 03:35:52
+74	 987096		 2020-04-12 04:16:33
