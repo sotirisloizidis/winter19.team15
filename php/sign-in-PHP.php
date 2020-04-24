@@ -35,7 +35,8 @@ if(($email=="") || ($password=="") ){
     return false;
 }
 session_start();
-$_SESSION["email"] = $email;
+$auth = FALSE;
+
 $query = "SELECT * FROM Customer WHERE Email='$email'";
 $result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
 
@@ -47,6 +48,10 @@ if (!$result) {
   $row = mysqli_fetch_assoc($result);
 
   if (password_verify($password,$row['Password'])){
+       
+       $_SESSION["email"] = $email;
+            $_SESSION['auth'] = TRUE;
+
        $cuid="SELECT Customer_ID FROM Customer WHERE Email='$email'";
        $res=mysqli_query($conn,$cuid);
        $row = mysqli_fetch_assoc($res);
@@ -69,7 +74,7 @@ if (!$result) {
 
   showConfirmButton: true
 }, function(){
-      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html';
+      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.php';
 });
      $('.sweet-overlay').css('background-color','#1E4072');
 
@@ -88,7 +93,7 @@ if (!$result) {
 	}
 	else
 	{
-        		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.html");
+        		header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/main.php");
 	}
 }
        return true;
