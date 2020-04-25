@@ -1,6 +1,6 @@
 <?php
 
-    include 'initSesh.php';
+    include 'initSeshTrainer.php';
     
 ?>
 

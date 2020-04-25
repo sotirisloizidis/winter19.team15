@@ -1,6 +1,11 @@
 <?php sleep(1); ?>
 
 <?php
+
+
+include 'initSeshTrainer.php';
+
+
 $servername="localhost";
 $username = "ironsky";
 $password = "pfVGdTzSOoLh85yp";
@@ -42,7 +47,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <!-- Latest compiled JavaScript -->
     <script>
         $(function () {
-            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbar.html");
+            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbar.php");
         });
     </script>
 
@@ -76,7 +81,7 @@ while($row = mysqli_fetch_assoc($result)) {
         <div class="row py-3">
             <div class="col-sm-12 mx-auto">
                 <!-- form card register -->
-                <form data-ajax=”false”>
+                <form data-ajax=ï¿½falseï¿½>
                     <div class="card ">
                         <div style="overflow-x:auto;">
                             <div class="card-header">

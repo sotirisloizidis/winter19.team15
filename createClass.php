@@ -1,6 +1,12 @@
 ﻿<?php sleep(1); ?>
 
 <?php
+
+
+
+    include 'initSeshTrainer.php';
+    
+
 $servername="localhost";
 $username = "ironsky";
 $password = "pfVGdTzSOoLh85yp";
@@ -42,7 +48,7 @@ while($row = mysqli_fetch_assoc($result)) {
     <!-- Latest compiled JavaScript -->
     <script>
         $(function () {
-            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbar.html");
+            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbar.php");
         });
     </script>
 
