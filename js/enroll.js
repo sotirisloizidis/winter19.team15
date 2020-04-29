@@ -142,7 +142,7 @@ function passItem(el) {
                                     
                                       showConfirmButton: true
                                     }, function(){
-                                          window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/enroll.html';
+                                          window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/enroll.php';
                                     }); 
                                 }
                             });
@@ -173,7 +173,7 @@ function passItem(el) {
                                             
                                               showConfirmButton: true
                                             }, function(){
-                                                  window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/enroll.html';
+                                                  window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/enroll.php';
                                             }); 
                                                  
                                               

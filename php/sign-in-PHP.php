@@ -32,7 +32,6 @@ if (($email == "") || ($password == "")) {
                    $('.sweet-overlay').css('background-color','#1E4072');
 
             </script>";
-      //header("Location:http://cproject.in.cs.ucy.ac.cy/ironsky/GrandMaster/sign-in.php");
       return false;
 }
 

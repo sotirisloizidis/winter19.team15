@@ -341,10 +341,10 @@
            success: function(data) 
            {  
               var pos = data.indexOf("<h1");  
-              var pos1 = data.lastIndexOf("</p>"); 
+              var pos1 = data.lastIndexOf("rules"); 
               var j;
               var text = "";
-              for (j = pos; j < pos1+4; j++) 
+              for (j = pos; j < pos1+25; j++) 
               {
                   text += data[j];
               }

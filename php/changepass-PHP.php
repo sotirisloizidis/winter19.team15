@@ -33,6 +33,23 @@ $verifypass=$_POST["Verify"];
     
     } else{
     
+        if((strlen($newpassword)<8)&&(!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $newpassword))){
+              echo "<script> 
+              swal({
+                title: 'Invalid data!',
+                text: 'New Password must be at least 8 characters long and must contain both letters and numbers.',
+                type: 'error',
+                
+                  showConfirmButton: true
+                }, function(){
+                      window.location.href = 'http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/changepass.php';
+                }); 
+                     $('.sweet-overlay').css('background-color','#1E4072');
+                      </script>";
+          exit();
+        }else{       
+        
+    
         $query = "SELECT * FROM Customer";
         $result = mysqli_query($conn, $query)  or die("Could not connect database " .mysqli_error($conn));
         $flag=0;
@@ -47,7 +64,6 @@ $verifypass=$_POST["Verify"];
                 $sql = "UPDATE Customer SET Password='$hash' WHERE Email='$email'";
         
                 if ($conn->query($sql) === TRUE) {
-                $row = mysqli_fetch_assoc($result);
                 $name= $row['Name'];
                 
                 $subject='Password Changed';
@@ -94,5 +110,6 @@ Your password has changed.';
           }
           
     }  
+    }
 $conn->close();
 ?>

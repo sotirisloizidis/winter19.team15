@@ -1,7 +1,7 @@
 <?php
 include 'connectDB.php';
     
-  var_dump ("hehehehehhe");
+  
 $positions=($_POST["positions"]);
 $className=($_POST["className"]);
 $description=($_POST["description"]); 

@@ -32,12 +32,6 @@
     <link rel="stylesheet" type="text/css" href="css/support.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
-    <script>
-        $(function () {
-            $("#includedContent").load("http://cproject.in.cs.ucy.ac.cy/ironsky/winter19.team15/navbarclient.php");
-        });
-
-    </script>
 
 
 </head>

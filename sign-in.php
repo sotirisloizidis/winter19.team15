@@ -12,7 +12,7 @@
     <link href="css/sign-in.css" rel="stylesheet">
  
   </head>
-  <body class="text-center center" style="background-color:#1E4072;">
+  <body class="text-center center" style="background-color:#1E4072;">        
     <form method="POST" action="php/sign-in-PHP.php" class="form-signin center">
       <h2 class="font-weight-normal" style="color:white;">Welcome to Ironsky</h2>
       <h1 class="font-weight-normal motto">Be strong, brave and humble</h1>
@@ -38,5 +38,5 @@
       <p class="mt-5 mb-3 text-muted"><font color="#4B5D7F">By proceding you also agree to the Terms of Service and Privacy Policy</p>
     </form>
 
-  </body>
+  </body>       
 </html>
